@@ -56,7 +56,33 @@
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
-      // Put some code in here!
+      $(document).ready(function() {
+
+        var counter = 1234;
+
+        var countDown = function() {
+          var interval = setInterval(goingDown, 1000);
+
+        }
+
+        var goingDown = function() {
+          $("#counter").css("value", "data"), ("value", "" + counter-- + "");
+        }
+
+        countDown();
+
+        var stopCount = function() {
+          $("#counter").click( function(){
+            clearInterval(interval);
+            counter = 1234;
+          });
+
+        }
+
+        stopCount();
+
+
+      });
     </script>
 
   </head>
