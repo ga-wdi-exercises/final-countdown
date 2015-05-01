@@ -56,7 +56,52 @@
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
-      // Put some code in here!
+    $(document).ready(function(){
+        var form = $("form");
+        var counter = $("#counter");
+        var running = false;
+        var time = 1234;
+        counter.attr("value", time);
+        var timer;
+
+        function timerGo(){
+          if(counter.hasClass("fail")){
+            counter.removeClass("fail");
+          }
+          time = 1234;
+          timer = setInterval(countDown, 1);
+          running = true;
+        }
+
+        function timerStop(){
+          clearInterval(timer);
+          running = false;
+        }
+
+        function countDown(){
+          time--;
+          counter.attr("value", time);
+          if(time <= 0){
+            timerStop();
+            counter.addClass("fail");
+          }
+        }
+
+        function manageClock(){
+          if(running === false){
+            timerGo();
+          }
+          else if(running === true){
+            timerStop();
+          }
+        }
+
+        form.on("submit", function(event){
+          event.preventDefault();
+          manageClock();
+        });
+
+    })
     </script>
 
   </head>
