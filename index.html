@@ -56,7 +56,17 @@
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
-      // Put some code in here!
+      var timer = setInterval(function(){
+        $('#counter').attr("value") //unconfirmed logic (was thinking: "= 200--")
+        $('#counter').trigger('click');
+        clearInterval(timer);
+        }, 2000);
+
+        //Notes: My Logic here was to initially select the "#counter"
+        //and make it countdown, when "trigger" is clicked.  I looked up
+        // a .countdown feature but was not able to impliment it.
+        // I tried #submit.
+        //From what I can see, the screen is refreshing every 2 seconds.
     </script>
 
   </head>
