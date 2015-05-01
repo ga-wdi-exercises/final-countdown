@@ -4,23 +4,7 @@ How close to 0 can you get?
 
 Your goal is to make the page you see at http://ga-dc.github.io/final-countdown, editing only the `<script>` element.
 
-## Things to note:
-
-The counter starts at 1234.
-
-When clicked, it begins counting down.
-
-When clicked while counting, it stops.
-
-When clicked while stopped, it resets to 1234 and starts counting down again.
-
-When it reaches 0, it takes on a class called "fail", which makes the text turn red.
-
-It cannot go below 0.
-
-## Pseudo-coding
-
-If you're not sure how to start, try making your script achieve the following goals, one at a time: 
+If you're not sure how to start, try making your script achieve the following goals, one at a time:
 
 1. Print the current value of the counter to the console.
 - After you load the page, every 1 second print "A second passed!" to the console.
