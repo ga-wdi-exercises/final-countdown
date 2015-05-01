@@ -57,6 +57,21 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
       // Put some code in here!
+
+      var val = document.querySelector("value");
+      var count = document.getElementById("counter");
+
+      count.addEventListener('click', function(){
+
+        console.log("I got clicked");
+        setInterval (function(){
+          console.log("second has passed");
+          console.log("val");
+          val = val -1;
+          console.log("val");
+        }, 1000)
+      })
+
     </script>
 
   </head>
