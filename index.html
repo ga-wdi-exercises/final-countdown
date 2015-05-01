@@ -57,6 +57,28 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
       // Put some code in here!
+      var countDown = 1234;
+      var zero = 0;
+
+      var miliseconds = 0
+      var seconds = 0 
+      
+      function miliTimer(){
+      miliseconds = 0
+      seconds = 0 
+      if (miliseconds === 100) { 
+        seconds = 0; seconds = seconds + 1; 
+        } 
+      }
+
+      $(document).ready(function(){
+        $("#counter").click(function() {
+          var timerStart = countDown;
+          setInterval(function() {
+            countDown.innerHTML = "StopWatch:" + seconds + ":" + miliseconds; miliseconds--;
+          }, 100);
+        });
+      });
     </script>
 
   </head>
