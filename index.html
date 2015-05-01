@@ -56,8 +56,43 @@
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
-      // Put some code in here!
-    </script>
+
+        // $(document).ready(function(){
+          
+        //   sec = 0;
+
+        //   $("#counter").on("click", function(){
+        //     var timeCounter = $("#counter").html();
+        //     var updateTime = eval(timeCounter) - eval(1);
+        //     $("#counter").html(updateTime);
+
+        //     })
+        //   }, 1000);
+
+
+    // set count equal to form input value (200)
+    // create click event on counter 
+      // setInterval by 1000 ms; create func to subtract from count (input value)
+    // clearInterval once counter hits 0
+    
+    // var count = $(".value");
+    count = 200
+      $("#counter").on("click", function(){
+      setInterval(startCount, 1000);
+
+      function startCount()
+      {
+        count = count - 1;
+        if (count <= 0)
+        {
+           clearInterval(counter);
+           return;
+        }
+
+       };     
+    });
+
+  </script>
 
   </head>
   <body>
