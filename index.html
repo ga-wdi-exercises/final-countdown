@@ -56,7 +56,53 @@
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
-      // Put some code in here!
+    $(document).ready(function(){
+      console.log("ready?");
+
+      var counter = document.getElementById("counter");
+      var countMSeconds;
+      var counterNumber = 1234;
+
+      //sets initial counter number
+      counter.value = counterNumber;
+
+      // listens for "click" event on number area
+      counter.addEventListener("click", currentAction);
+
+      // detects whether the countdown is happening or paused
+      function currentAction(){
+        console.log("Current Action");
+        if(!countMSeconds){
+          countingDown();
+        }
+        else{
+          stopCount();
+        }
+      }
+
+      //starts countdown
+      function countingDown(event){
+        console.log("Counting Down");
+        // if(!countMSeconds){
+      		countMSeconds = setInterval(function () {
+      		  counter.value = counterNumber--;
+      		}, 100);
+          if(counterNumber === 0){
+            $("counter").css("color", "red");
+          }
+      	// }
+      }
+
+      // pauses the countdown
+      var stopCount = function(){
+        console.log("Stop Count");
+        setTimeout(function () {
+      		clearInterval(countMSeconds);
+        }, 1000);
+      }
+
+    });
+
     </script>
 
   </head>
