@@ -61,14 +61,22 @@
         counter = $("#counter");
         time= 1200;
 
+        
         counter.click(function(){
           event.preventDefault();
           clearInterval(countDown);
+          if (time === 0) {
+            counter.css("color", "red");
+          }
         });
 
         countDown= setInterval(function(){
           counter.val(time);
           time--;
+          if (time === -1) {
+            clearInterval(countDown);
+            counter.css("color", "red");
+          }
         },500);
 
 
