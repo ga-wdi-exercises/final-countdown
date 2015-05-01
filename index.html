@@ -55,8 +55,45 @@
       }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script>
-      // Put some code in here!
+        <script>
+    var countDown = 1234;
+    //test//
+    // $("#counter").val(countDown);
+
+    function Start(){
+      
+      console.log("I got clicked");
+      $("#counter").val(countDown);
+      setInterval(Counter(), 1000);
+    };
+
+
+    function Counter(){
+      $("#counter").val(countDown);
+      console.log("TEST "+countDown);
+
+      countDown = countDown - 1;
+    };
+
+$("#counter").click(Start());
+
+//   function(){
+//   console.log("I got clicked");
+// });
+
+
+// After you load the page, every 1 second print "A second passed!" to the console.
+// After the counter is clicked, print "I got clicked!" to the console.
+// After the counter is clicked, every 1 second print "A second passed!" to the console.
+// After the counter is clicked, every 1 second print the value of the counter to the console.
+// After the counter is clicked, every 1 second decrease the original value of the counter by 1 and print the new value to the console.
+// After the counter is clicked, every 1 second decrease the original value of the counter by 1 and replace the counter's text with the new value.
+// After the counter is clicked, every 1 second decrease the original value of the counter by 1 and replace the counter's text with the new value. When you click on the counter, stop the timer.
+// After the counter is clicked, every 1 second decrease the original value of the counter by 1 and replace the counter's text with the new value. When you click on the counter, stop the timer. When you click on the counter again, continue the timer.
+// After the counter is clicked, every 1 second decrease the original value of the counter by 1 and replace the counter's text with the new value. When you click on the counter, stop the timer. When you click on the counter again, continue the timer. If the counter reaches 0, the counter's text should turn red.
+// After the counter is clicked, every 1 second decrease the original value of the counter by 1 and replace the counter's text with the new value. When you click on the counter, stop the timer. When you click on the counter again, continue the timer. If the counter reaches 0, the counter's text should turn red and the timer should stop.
+// After the counter is clicked, every 1 second decrease the original value of the counter by 1 and replace the counter's text with the new value. When you click on the counter, stop the timer. If the counter reaches 0, the counter's text should turn red and the timer should stop. When you click on the timer once it is stopped, its value should go back to the original value and the timer should start again.
+
     </script>
 
   </head>
