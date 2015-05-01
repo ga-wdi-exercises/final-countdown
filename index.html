@@ -56,7 +56,43 @@
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
-      // Put some code in here!
+      //Print the current value of the counter to the console:
+      // console.log(document.getElementById("counter"))
+
+      //Print "A second passed!" every second
+      // var secondPassed = function(){
+      //   console.log("A second passed!")
+      // }
+
+      // setInterval(secondPassed, 1000)
+
+      var counter = document.getElementById("counter").value; //For some reason, this is now returning 'null', yet when I paste the line into the console, it returns 200.  Because it's returning 'null,' it can't change the value to startNumber... 
+      var itIsCounting = 0; //switch to determine if it's on(1) or off(0)
+      var startNumber = 1234;
+
+      // countdown function
+      var startCounter = function(){
+        counter = startNumber; //begin counter at 1234
+        counter--; //decrement by one
+      }
+
+      counter.addEventListener("click", function(){
+        // start counting down when clicked
+        if (itIsWorking === 0){
+          interval = setInterval(startCounter, 1000); //do the startCounter function every 1 second
+          itIsCounting = 1 //counter is on
+        }
+        else if (itIsCounting === 1){
+          clearInterval(interval);
+          itIsCounting === 0;
+        }
+        else {
+          clearInterval(interval);
+          startNumber = 1234;
+          itIsCounting = 0
+        }
+      });
+
     </script>
 
   </head>
