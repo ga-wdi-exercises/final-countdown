@@ -56,7 +56,32 @@
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
-      // Put some code in here!
+
+    $(document).ready(function(){
+
+      var counter =  $("#counter")
+      var totalTime = counter.val()
+      var timer
+
+      counter.on("click", function(event){
+        event.preventDefault();
+        timer = setInterval( function() { runTimer() }, 1000);
+      })
+
+      function runTimer(){
+        counter.val(totalTime)
+        totalTime--
+      }
+
+
+//I'm guessing the additional clicks somehow involve callbacks in some way but I ran out of time
+      // counter.on("click", function(event){
+      //   event.preventDefault();
+      //   clearInterval(timer);
+      // })
+
+
+    })
     </script>
 
   </head>
