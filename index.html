@@ -57,6 +57,23 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
       // Put some code in here!
+      $(document).ready(function(){
+        counter = $("#counter");
+        time= 1200;
+
+        counter.click(function(){
+          event.preventDefault();
+          clearInterval(countDown);
+        });
+
+        countDown= setInterval(function(){
+          counter.val(time);
+          time--;
+        },500);
+
+
+
+      });
     </script>
 
   </head>
