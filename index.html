@@ -56,7 +56,34 @@
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
-      // Put some code in here!
+
+
+
+
+
+
+    $(document).ready(function(){
+
+      var counter =  $("#counter")
+      console.log(counter.val());
+
+      counter.on("click", function(event){
+        event.preventDefault();
+        var timer = setInterval( function() { printSec() }, 1000);
+      })
+// - After the counter is clicked, every 1 second print "A second passed!" to the console.
+
+      function printSec(){
+        console.log("A second has passed!")
+      }
+
+
+
+
+
+
+
+    })
     </script>
 
   </head>
