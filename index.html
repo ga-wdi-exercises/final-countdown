@@ -54,10 +54,32 @@
         color:red;
       }
     </style>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script>
-      // Put some code in here!
+    <script type = "text/javascript">
+
+    function countDown(secs, elem) {
+      var element = document.getElementbyID(elem);
+      element.innerHTML = "Wait for 20 "+ secs +" seconds";
+      if (secs < 1) {
+        clearTimeout(timer);
+        element.innerHTML = '<h2>Count Down Complete!</h2>';
+
+
+      }
+
+
+      secs --;
+      var timer = setTimeout('countDown('+secs+', "'+elem+'")', 1000);
+
+
+    }
+
     </script>
+      <div id ="status"></div>
+      <script type ="text/javascript">countDown(20, "status")</script>
+
+
 
   </head>
   <body>
