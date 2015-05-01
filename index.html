@@ -56,7 +56,57 @@
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
-      // Put some code in here!
+      $(document).ready( function(){
+
+        // INITIALIZE
+        var isItRunning = 0;
+        var timeToCount;
+        counter = $("#counter");
+
+        // CLICK HANDLER
+        counter.on( "click", function( event ){
+          event.preventDefault();
+
+          // START OR RESET COUNTER
+          if ( isItRunning === 0 || isItRunning === 2 ) {
+
+            // If counter ran out, reset counter
+            if ( isItRunning === 2 ) {
+              resetCounter();
+            }
+
+            isItRunning = 1;
+
+            // Start counter
+            timeToCount = setInterval( function() {
+
+              // Reduce counter value by 1
+              var value = counter.attr( "value" );
+              counter.attr( "value", value - 1 );
+
+              // When counter runs out, change color to red and stop counter
+              if ( value <= "1" ) {
+                counter.css( "color", "red" );
+                clearInterval( timeToCount );
+                isItRunning = 2;                  // state for finished counter
+              }
+            }, 1000);
+          }
+
+          // PAUSE COUNTER
+          else if ( isItRunning === 1 ) {
+            isItRunning = 0;
+            clearInterval( timeToCount );
+          }
+
+        })
+      });
+
+      function resetCounter() {
+        counter.attr( "value", 200 );
+        counter.css( "color", "#0f0" );
+      }
+
     </script>
 
   </head>
