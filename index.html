@@ -56,7 +56,31 @@
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
-      // Put some code in here!
+      // var count = 1234
+
+      var counter = document.getElementById("counter")
+
+      counter = counter.value
+
+      counter.addEventListener("click", startCountdown)
+
+      function startCountdown(){
+        startCountdown = setInterval(function(){
+        document.getElementById("counter").innerHTML = count; count--;
+      },100);
+      }
+      function pauseCountdown(){
+        clearInterval(startCountdown)
+      }
+
+      function resetCountdown(){
+        var count = 1234
+      }
+      // $(document).ready(function(){
+      //   counter = $("#counter");
+      //   counter[0].value = 1234
+
+
     </script>
 
   </head>
@@ -68,3 +92,7 @@
 
   </body>
 </html>
+<!-- $(document).ready(function(){
+        counter = $("#counter");
+        counter[0].value = counter
+  
