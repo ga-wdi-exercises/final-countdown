@@ -56,7 +56,23 @@
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
-      // Put some code in here!
+
+      function decrementCounter(){
+        var countdownString = $( "#counter" ).attr('value');
+        var countdownInteger = parseInt(countdownString, 10);
+        countdownInteger--;
+        var newCountdownString = (countdownInteger).toString();
+        $( "#counter" ).attr('value', newCountdownString);
+      };
+
+      function startDecrement(){
+        setInterval(decrementCounter, 10);
+      };
+
+      $( "#counter" ).click(function(){
+        startDecrement();
+      });
+
     </script>
 
   </head>
