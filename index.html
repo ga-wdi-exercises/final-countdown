@@ -56,7 +56,45 @@
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
-      // Put some code in here!
+    var initialValue;
+    var counterId;
+    var timerDisplay;
+      $(document).ready(function(){
+        timerDisplay = $("#counter")
+        initialValue = timerDisplay.val();
+        //console.log (initialValue);
+       // toggleTimer();
+       timerDisplay.on('click', counterClick);
+
+
+      });
+      function toggleTimer(){
+        if (counterId){
+          clearInterval(counterId);
+          counterId  = null;
+        }
+        else{
+          timerDisplay.removeClass("fail");
+          timerDisplay.val(initialValue);
+          //sitting it to 10 instead of 1000 makes it more fun
+          counterId = setInterval(countDown, 10);
+        }
+      }
+      function countDown(){
+        //console.log("A Second Passed");
+        var val = timerDisplay.val() - 1;
+        timerDisplay.val(val);
+        if (timerDisplay.val() <= 0){
+          timerDisplay.addClass("fail");
+          toggleTimer();
+        }
+        //console.log(timerDisplay.val());
+      }
+      function counterClick(event){
+        event.preventDefault();
+        //console.log("I got clicked!");
+        toggleTimer();
+      }
     </script>
 
   </head>
