@@ -57,30 +57,28 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
 
-
-
-
-
-
     $(document).ready(function(){
 
       var counter =  $("#counter")
-      console.log(counter.val());
+      var totalTime = counter.val()
+      var timer
 
       counter.on("click", function(event){
         event.preventDefault();
-        var timer = setInterval( function() { printSec() }, 1000);
+        timer = setInterval( function() { runTimer() }, 1000);
       })
-// - After the counter is clicked, every 1 second print "A second passed!" to the console.
 
-      function printSec(){
-        console.log("A second has passed!")
+      function runTimer(){
+        counter.val(totalTime)
+        totalTime--
       }
 
 
-
-
-
+//I'm guessing the additional clicks somehow involve callbacks in some way but I ran out of time
+      // counter.on("click", function(event){
+      //   event.preventDefault();
+      //   clearInterval(timer);
+      // })
 
 
     })
