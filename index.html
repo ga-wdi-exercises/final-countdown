@@ -56,40 +56,7 @@
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
-      $(document).ready(function(){
-
-        var counter = $("#counter");
-        var timeDefault = counter.val();
-        var time = 0;
-        var isRunning = false;
-        var timer;
-
-        function decrement(){
-          time = time - 1;
-          if(time <= 0){
-            clearInterval(timer);
-            isRunning = false;
-            counter.addClass("fail");
-          }
-          counter.val(time);
-        }
-
-        counter.click(function(evt){
-          evt.preventDefault();
-          if(isRunning === true){
-            clearInterval(timer);
-            isRunning = false;
-          }
-          else if(isRunning === false){
-            isRunning = true;
-            time = timeDefault;
-            counter.removeClass("fail");
-            timer = setInterval(decrement, 10);
-          }
-
-        });
-
-      });
+      $(document).ready(function(){function a(){t-=1,0>=t&&(clearInterval(e),r=!1,l.addClass("fail")),l.val(t)}var e,l=$("#counter"),n=l.val(),t=0,r=!1;l.click(function(c){c.preventDefault(),r===!0?(clearInterval(e),r=!1):r===!1&&(r=!0,t=n,l.removeClass("fail"),e=setInterval(a,10))})});
     </script>
 
   </head>
