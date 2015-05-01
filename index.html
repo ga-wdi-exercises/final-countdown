@@ -56,7 +56,34 @@
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
-      // Put some code in here!
+
+    $(document).ready(function(){
+      var i = 0
+      var counter = $("#counter");
+      var counterVal = counter.val()
+      console.log(counter.val());
+
+      setInterval(function(){
+          console.log("a second passed");
+        }, 1000)
+
+      counter.click(function(event){
+        event.preventDefault();
+        console.log("I got clicked");
+        var yo = setInterval(function(){
+            console.log("a second passed");
+            counterVal = counterVal-1;
+            counter.val(counterVal)
+            console.log(counterVal);
+          }, 1000)
+
+        counter.click(function(){
+          clearInterval(yo);
+        })
+      })
+
+
+    })
     </script>
 
   </head>
