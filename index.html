@@ -56,7 +56,37 @@
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
-      // Put some code in here!
+      $(document).ready(function(){
+        var counterValue = $("#counter")[0].value;
+        var counter = $("#counter")[0];
+        var intervalID = window.setInterval(printValue, 1000);
+
+        function printValue() {
+          console.log(counterValue);
+          counterValue--;
+          counter.value = counterValue;
+        }
+        
+        // function shuffleOffMortalCoil() {
+        //   console.log("A second passed!");
+        // }
+
+        counter.addEventListener("click", function(event){
+          event.preventDefault();
+          console.log("I got clicked!");
+          var intervalID = window.setInterval(printValue, 1000);
+        });
+
+        //really stuck on how to get a second click to the same button to do something different. 
+        counter.addEventListener("click", function(event){
+          event.preventDefault();
+          console.log("I got clicked again!");
+          window.clearInterval(intervalID);
+          //also, how to reference intervalID from here without getting an error? if I define intervalID at the beginning of <script>, the countdown doesn't happen. if I define the whole phrase at the beginning of <script>, it doesn't wait for the click event before it starts to execute. 
+
+        });
+
+      });
     </script>
 
   </head>
