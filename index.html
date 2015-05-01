@@ -1,70 +1,93 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>W07D05 Quiznos</title>
-    <link href='http://fonts.googleapis.com/css?family=VT323' rel='stylesheet' type='text/css'>
-    <style>
-      *
-      {
-        margin:0;
-        padding:0;
-        border:0;
-        font-size:0;
-        box-sizing:border-box;
-        font-family: "VT323", monospace;
-      }
-      body,html,form
-      {
-        position:relative;
-        width:100%;
-        height:100%;
-        background-color:black;
-      }
-      form
-      {
-        display:block;
-      }
-      #counter
-      {
-        display:block;
-        width:320px;
-        position:relative;
-        top:30%;
-        margin:0 auto;
-        border-radius:10px;
-        font-size:144px;
-        line-height:144px;
-        text-align:right;
-        padding:0px 24px;
-        background-color:transparent;
-        color:#0f0;
-        box-shadow:0px 0px 100px 0px #060;
-        cursor:pointer;
-      }
-      #counter:focus
-      {
-        outline:0;
-      }
-      #counter:hover
-      {
-        color:#8f8;
-      }
-      #counter.fail
-      {
-        color:red;
-      }
-    </style>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script>
-      // Put some code in here!
-    </script>
+<head>
+  <title>W07D05 Quiznos</title>
+  <link href='http://fonts.googleapis.com/css?family=VT323' rel='stylesheet' type='text/css'>
+  <style>
+  *
+  {
+    margin:0;
+    padding:0;
+    border:0;
+    font-size:0;
+    box-sizing:border-box;
+    font-family: "VT323", monospace;
+  }
+  body,html,form
+  {
+    position:relative;
+    width:100%;
+    height:100%;
+    background-color:black;
+  }
+  form
+  {
+    display:block;
+  }
+  #counter
+  {
+    display:block;
+    width:320px;
+    position:relative;
+    top:30%;
+    margin:0 auto;
+    border-radius:10px;
+    font-size:144px;
+    line-height:144px;
+    text-align:right;
+    padding:0px 24px;
+    background-color:transparent;
+    color:#0f0;
+    box-shadow:0px 0px 100px 0px #060;
+    cursor:pointer;
+  }
+  #counter:focus
+  {
+    outline:0;
+  }
+  #counter:hover
+  {
+    color:#8f8;
+  }
+  #counter.fail
+  {
+    color:red;
+  }
+  </style>
 
-  </head>
-  <body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
-    <form>
-      <input type="submit" id="counter" value="200" />
-    </form>
+  <script src = "https://code.jquery.com/jquery-2.1.4.min.js"></script>
 
-  </body>
+
+  <script>
+  $(document).ready(function(){
+
+    formCounter = $("#counter")
+    counterValue = formCounter.attr("value")
+    console.log(counterValue)
+    //show current value in console
+
+//
+// jQuery.on()
+//     $(formCounter).on("load", function(){
+
+
+  //
+  //     intrevalID = setInterval(function(){
+  //       console.log("A second has passed")
+      }, 1000);
+    });
+  //
+  //   //after every second print a second passed
+  </script>
+
+</head>
+<body>
+
+  <form>
+    <input type="submit" id="counter" value="200" />
+  </form>
+
+</body>
 </html>
