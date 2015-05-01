@@ -56,7 +56,19 @@
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
+    var countDown = 1234;
       // Put some code in here!
+      $("#counter").value(countDown)
+      setInterval(StartTimer(), 1000);
+    //without the () it will evaluate the code and i will increment
+    //but as StartTimer(), it will only return the result without
+    //incrementing every second instead
+    function Counter(){
+      $("#counter").value(countDown) = i;
+      i--;
+}
+
+
     </script>
 
   </head>
