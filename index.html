@@ -56,14 +56,37 @@
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
-      // Put some code in here!
+      // not working
+      function printCounter() {
+        var value = document.getElementById("counter");
+        console.log(value.value);
+      }
+      // not working
+      printCounter();
+
+      function secondpassed() {
+        alert("A Second Has passed");
+      };
+
+    // function counterClick() {
+    //    var second = $("counter").click(everySecond);
+    //   };
+    //
+    // function everySecond {
+    //   var seconds = setInterval(function {
+    //     alert("A second has passed");
+    //   }, 100);
+    // };
+    counterClick();
+
+
     </script>
 
   </head>
-  <body>
+  <body onLoad = "secondpassed()" >
 
     <form>
-      <input type="submit" id="counter" value="200" />
+      <input type="submit" id="counter" value="1234" />
     </form>
 
   </body>
