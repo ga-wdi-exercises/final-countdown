@@ -56,7 +56,15 @@
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
-      // Put some code in here!
+
+    var button = $('#counter');
+
+    button.click(function(event) {
+      event.preventDefault();
+      button.val('1234');
+    });
+
+    //STILL WORKING OUT THE WHOLE JAVASCRIPT THING.
     </script>
 
   </head>
