@@ -1,70 +1,103 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>W07D05 Quiznos</title>
-    <link href='http://fonts.googleapis.com/css?family=VT323' rel='stylesheet' type='text/css'>
-    <style>
-      *
-      {
-        margin:0;
-        padding:0;
-        border:0;
-        font-size:0;
-        box-sizing:border-box;
-        font-family: "VT323", monospace;
-      }
-      body,html,form
-      {
-        position:relative;
-        width:100%;
-        height:100%;
-        background-color:black;
-      }
-      form
-      {
-        display:block;
-      }
-      #counter
-      {
-        display:block;
-        width:320px;
-        position:relative;
-        top:30%;
-        margin:0 auto;
-        border-radius:10px;
-        font-size:144px;
-        line-height:144px;
-        text-align:right;
-        padding:0px 24px;
-        background-color:transparent;
-        color:#0f0;
-        box-shadow:0px 0px 100px 0px #060;
-        cursor:pointer;
-      }
-      #counter:focus
-      {
-        outline:0;
-      }
-      #counter:hover
-      {
-        color:#8f8;
-      }
-      #counter.fail
-      {
-        color:red;
-      }
-    </style>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script>
-      // Put some code in here!
-    </script>
+<head>
+  <title>W07D05 Quiznos</title>
+  <link href='http://fonts.googleapis.com/css?family=VT323' rel='stylesheet' type='text/css'>
+  <style>
+  *
+  {
+    margin:0;
+    padding:0;
+    border:0;
+    font-size:0;
+    box-sizing:border-box;
+    font-family: "VT323", monospace;
+  }
+  body,html,form
+  {
+    position:relative;
+    width:100%;
+    height:100%;
+    background-color:black;
+  }
+  form
+  {
+    display:block;
+  }
+  #counter
+  {
+    display:block;
+    width:320px;
+    position:relative;
+    top:30%;
+    margin:0 auto;
+    border-radius:10px;
+    font-size:144px;
+    line-height:144px;
+    text-align:right;
+    padding:0px 24px;
+    background-color:transparent;
+    color:#0f0;
+    box-shadow:0px 0px 100px 0px #060;
+    cursor:pointer;
+  }
+  #counter:focus
+  {
+    outline:0;
+  }
+  #counter:hover
+  {
+    color:#8f8;
+  }
+  #counter.fail
+  {
+    color:red;
+  }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script>
+  $(document).ready(function(){
+    var counter = document.getElementById("counter");
 
-  </head>
-  <body>
+    // counter.addEventListener('onload', function(event){
+    //   event.preventDefault();
+    // });
+    //
+    // var defaultTime = counter.val();
+    // var time = 1234;
+    //
+    //
+    // function countDown(){
+    //   time = time - 1;
+    //   counter.val(time);
+    // };
+    //
 
-    <form>
-      <input type="submit" id="counter" value="200" />
-    </form>
 
-  </body>
+    document.addEventListener('onload', function(event){
+
+      var consoleCounter;
+
+      function Counter(){
+        consoleCounter = setInterval(countFunction, 1000);
+      };
+
+      function countFunction(){
+        for (i = 0; i < 1234; i ++){
+        console.log( i )
+      };
+
+
+
+});
+</script>
+
+</head>
+<body>
+
+  <form>
+    <input type="submit" id="counter" value="1234" />
+  </form>
+
+</body>
 </html>
