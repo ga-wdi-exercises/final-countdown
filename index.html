@@ -82,43 +82,43 @@
         $("#counter").val(counterValue);  //otherwise, subtract one from the "counter" variable, which is displaying the value of the "counterValue" variable.  
         };
       }
-      var resetCounter = function(){
+      var resetCounter = function(){  //declare the function to reset the counter.
         $("#counter").val(startNumber);  //the counter form value should take the value noted in the "startNumber" variable above.
         $("#counter").css("color", '')  //resets the color of the counter form variable as shown on the page
         console.log("resetting!");  //this is just to note in the console when this function is being called.  
         console.log(isCounting);
         isCounting = false ;
       }
-      var startCounter = function(){
-        counterValue = $("#counter").val();
-        isCounting = true
+      var startCounter = function(){  //declares the function to start the counter.
+        counterValue = $("#counter").val();  //assigns the value of counter.value to counterValue
+        isCounting = true  //assigns isCounting to true, which is what is used to note if the counter is on or off.  
         if (counterValue == 0){
           resetCounter();
-          console.log(isCounting)
-        } else {
-        interval = setInterval(countDown, 0.01)
-        $("#counter").val(counterValue)
-        console.log("starting!");
+          console.log(isCounting)  //when the startCounter function is called, if counterValue is equal to zero, it calls resetCounter.  Also notes what the value of isCounting on the console just to confirm (legacy from troubleshooting)
+        } else {  //otherwise
+        interval = setInterval(countDown, 0.01)  //uses the setInterval method to count down 
+        $("#counter").val(counterValue)  //assigns value of counterValue to the value of counter in the form
+        console.log("starting!");//these console.logs left for troubleshooting, to confirm where the program is when it starts and stops.
         };
         console.log(isCounting)
       }
-      var stopCounter = function(){
-        isCounting = false;
-        clearInterval(interval);
+      var stopCounter = function(){  //this function called to stop the counter.
+        isCounting = false;  //sets iscCounting to false (used elsewhere to note whether to turn on or off counter)
+        clearInterval(interval);  //stops the setInterval method, called in startCounter
         console.log("stopping!");
         console.log(isCounting);
       };
 
 
-      var clickCounter = $("#counter").on("click", function(evt){
-        evt.preventDefault();
+      var clickCounter = $("#counter").on("click", function(evt){  //create click event
+        evt.preventDefault();  //prevents click event from refreshing page.
         console.log("boy i hope i can start");
-          if (isCounting === false){
+          if (isCounting === false){ 
             console.log("starting?");
-            startCounter();
+            startCounter();  //if isCounting is equal to false, it calls startCounter function.
           } else {
             console.log("i hope to stop");
-            stopCounter();
+            stopCounter();  //if isCounting is not equal to false, if calls stopCounter
           };
         });
       });
