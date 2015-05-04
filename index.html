@@ -56,7 +56,75 @@
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
-      // Put some code in here!
+
+
+
+    $( document ).ready(function() {
+   
+   //declare variables
+      var startNumber = 1234  //initial value for counter
+      var counter = $("#counter").val(startNumber)  //takes value from form "counter" below and assigns to "counter" variable.
+      var counterValue = counter
+      var isCounting = false  //variable to note whether counter is on or off
+      
+      var interval = ""  //declaring "interval variable here to give it global scope"
+
+      var countDown = function(){  //declaring function that will perform the actual counting down incrementation of counter.
+        counterValue = $("#counter").val();  //having "counterValue" take the current value of $("#counter") form item
+        if (counterValue == 0){
+          $("#counter").css("color", "red");
+          stopCounter();   //if counterValue is equal to zero, turn the number shown on screen red and run the "stopCounter" function (below)
+          console.log(isCounting);
+          console.log(counterValue);
+          console.log(counter);
+        } else {
+        counterValue = counterValue - 1;
+        $("#counter").val(counterValue);  //otherwise, subtract one from the "counter" variable, which is displaying the value of the "counterValue" variable.  
+        };
+      }
+      var resetCounter = function(){  //declare the function to reset the counter.
+        $("#counter").val(startNumber);  //the counter form value should take the value noted in the "startNumber" variable above.
+        $("#counter").css("color", '')  //resets the color of the counter form variable as shown on the page
+        console.log("resetting!");  //this is just to note in the console when this function is being called.  
+        console.log(isCounting);
+        isCounting = false ;
+      }
+      var startCounter = function(){  //declares the function to start the counter.
+        counterValue = $("#counter").val();  //assigns the value of counter.value to counterValue
+        isCounting = true  //assigns isCounting to true, which is what is used to note if the counter is on or off.  
+        if (counterValue == 0){
+          resetCounter();
+          console.log(isCounting)  //when the startCounter function is called, if counterValue is equal to zero, it calls resetCounter.  Also notes what the value of isCounting on the console just to confirm (legacy from troubleshooting)
+        } else {  //otherwise
+        interval = setInterval(countDown, 0.01)  //uses the setInterval method to count down 
+        $("#counter").val(counterValue)  //assigns value of counterValue to the value of counter in the form
+        console.log("starting!");//these console.logs left for troubleshooting, to confirm where the program is when it starts and stops.
+        };
+        console.log(isCounting)
+      }
+      var stopCounter = function(){  //this function called to stop the counter.
+        isCounting = false;  //sets iscCounting to false (used elsewhere to note whether to turn on or off counter)
+        clearInterval(interval);  //stops the setInterval method, called in startCounter
+        console.log("stopping!");
+        console.log(isCounting);
+      };
+
+
+      var clickCounter = $("#counter").on("click", function(evt){  //create click event
+        evt.preventDefault();  //prevents click event from refreshing page.
+        console.log("boy i hope i can start");
+          if (isCounting === false){ 
+            console.log("starting?");
+            startCounter();  //if isCounting is equal to false, it calls startCounter function.
+          } else {
+            console.log("i hope to stop");
+            stopCounter();  //if isCounting is not equal to false, if calls stopCounter
+          };
+        });
+      });
+
+      
+        
     </script>
 
   </head>
