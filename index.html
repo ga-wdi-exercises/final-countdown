@@ -60,27 +60,41 @@
 $(document).ready(function() {
 //global stuff / event listeners, etc
 var counter = $('#counter');
+counter.addClass('stopped');
 //The counter starts at 1234.
 var counterVal = 1234;
 console.log(counterVal);
 counter.val(counterVal);
 //When clicked, it begins counting down.
-function ticker() {
-  setInterval(function() {
-    counterVal--;
-    counter.val(counterVal);
-    console.log('a second has passed');
-    console.log(counterVal);
-  }, 1000)
+
+
+function countDown() {
+
+    if(counter === 1234) {
+      counter.click(function(e) {
+        e.preventDefault();
+        var ticker =
+          setInterval(function() {
+            counterVal--;
+            counter.val(counterVal);
+            console.log('a second has passed');
+            console.log(counterVal);
+          }, 1000)
+        });
+      } else if (counter < 1234) {
+        counter.click(function(e) {
+          clearInterval(ticker);
+          var stopped = true;
+          console.log('clicked to stop');
+        })
+      }
+      if (stopped === true) {
+        counter = 1234;
+        countDown();
+      }
 }
-counter.click(function(e) {
-  e.preventDefault();
-  if(counter.attr('class') === 'counting') {
-    console.log(true);
-  }
-  counter.addClass('counting');
-  ticker();
-});
+countDown();
+
 
 
 
