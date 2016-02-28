@@ -60,14 +60,19 @@
         console.log("I'm ready!");
 
         var counter = $('#counter')
-        var startTime = counter.attr('value');
+        var counterValue = counter.attr('value');
 
         counter.click(function(evt) {
           evt.preventDefault();
           setInterval(function () {
-            console.log("A second passed!"); // end of console log
+            counter.attr('value', counterValue); // end of console log
+            decrement();
           }, 1000); // end of set interval
         }); // end of counter click function
+
+        function decrement() {
+          counterValue--;
+        }
 
       });
     </script>
