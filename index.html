@@ -65,11 +65,14 @@
     </form>
     <script>
     var counter = $('#counter').val();
-    //counter runs down each second after clicking, console logs decrease
+    //counter runs down each second after clicking, passes value to html element
     $('#counter').click(function() {
            event.preventDefault();
            setInterval(function()
-             {counter--; console.log(counter)}, 1000
+             {counter=counter-1;
+               console.log(counter);
+               $("#counter").val(counter);
+             }, 1000
            );
       }
     );
