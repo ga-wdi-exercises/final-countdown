@@ -57,6 +57,51 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
       // Put some code in here!
+$(document).ready(function() {
+//global stuff / event listeners, etc
+var counter = $('#counter');
+var counterVal = 1234; //The counter starts at 1234.
+counter.val(counterVal);
+console.log('starting at : ' + counterVal);
+var countId; //allow access outside of functions so clearInterval can be used
+var status = 0; //use to decide how to handle click event, status of 1 enables stop on click status 0 enables start on click
+
+//function to count down
+function countDown() {
+  counter.removeClass('fail'); //make sure counter starts out in green
+  counterVal--;
+  counter.val(counterVal);
+  console.log(counterVal);
+  status = 1;
+  //keep counter from going below 0.
+  if(counter.val() == 0) {
+    //When it reaches 0, it takes on a class called "fail", which makes the text turn red.
+    $('#counter').addClass('fail');
+    stopCountDown(countId);
+  }
+}
+//function to stop counting down
+function stopCountDown(iD) {
+  clearInterval(iD);
+  status = 0;
+}
+
+//handle the click event
+  //decide what happens when counter is clicked
+  counter.click(function(e) {
+    e.preventDefault();
+    //When clicked while counting, it stops.
+    if (status == 1) {
+      stopCountDown(countId);
+      console.log('counter stopped');
+    } else if (status == 0) {
+      //When clicked while stopped, it resets to 1234 and starts counting down again.
+      counterVal = 1234;
+      console.log('counting down: ');
+      countId = setInterval(countDown);
+    }
+  })
+});
     </script>
 
   </head>
