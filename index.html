@@ -70,13 +70,16 @@ var status = 0;
 
 //function to count down
 function countDown() {
+  counter.removeClass('fail');;
   counterVal--;
   counter.val(counterVal);
   console.log(counterVal);
   status = 1;
+  //It cannot go below 0.
   if(counter.val() == 0) {
+    //When it reaches 0, it takes on a class called "fail", which makes the text turn red.
+    $('#counter').addClass('fail');
     stopCountDown(countId);
-    counter.addClass('fail');
   }
 }
 //function to stop counting down
@@ -87,37 +90,19 @@ function stopCountDown(iD) {
 
 //handle the click event
   //decide what happens when counter is clicked
-counter.click(function(e) {
-  e.preventDefault();
-  //When clicked while counting, it stops.
-  if (status == 1) {
-    stopCountDown(countId);
-    console.log('counter stopped');
-  } else if (status == 0) {
-    //When clicked while stopped, it resets to 1234 and starts counting down again.
-    counterVal = 1234;
-    counter.css('color', '#0f0');
-    console.log('counting down: ');
-    countId = setInterval(countDown);
-  }
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//When it reaches 0, it takes on a class called "fail", which makes the text turn red.
-
-//It cannot go below 0.
+  counter.click(function(e) {
+    e.preventDefault();
+    //When clicked while counting, it stops.
+    if (status == 1) {
+      stopCountDown(countId);
+      console.log('counter stopped');
+    } else if (status == 0) {
+      //When clicked while stopped, it resets to 1234 and starts counting down again.
+      counterVal = 1234;
+      console.log('counting down: ');
+      countId = setInterval(countDown);
+    }
+  })
 });
     </script>
 
