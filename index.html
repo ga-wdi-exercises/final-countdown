@@ -60,49 +60,60 @@
 $(document).ready(function() {
 //global stuff / event listeners, etc
 var counter = $('#counter');
-counter.addClass('stopped');
+
 //The counter starts at 1234.
 var counterVal = 1234;
 console.log(counterVal);
 counter.val(counterVal);
-//When clicked, it begins counting down.
+var countId;
+var status = 0;
 
-
+//function to count down
 function countDown() {
-
-    if(counter === 1234) {
-      counter.click(function(e) {
-        e.preventDefault();
-        var ticker =
-          setInterval(function() {
-            counterVal--;
-            counter.val(counterVal);
-            console.log('a second has passed');
-            console.log(counterVal);
-          }, 1000)
-        });
-      } else if (counter < 1234) {
-        counter.click(function(e) {
-          clearInterval(ticker);
-          var stopped = true;
-          console.log('clicked to stop');
-        })
-      }
-      if (stopped === true) {
-        counter = 1234;
-        countDown();
-      }
+  counterVal--;
+  counter.val(counterVal);
+  console.log(counterVal);
+  status = 1;
+  if(counter.val() == 0) {
+    stopCountDown(countId);
+    counter.addClass('fail');
+  }
 }
-countDown();
+//function to stop counting down
+function stopCountDown(iD) {
+  clearInterval(iD);
+  status = 0;
+}
+
+//handle the click event
+  //decide what happens when counter is clicked
+counter.click(function(e) {
+  e.preventDefault();
+  //When clicked while counting, it stops.
+  if (status == 1) {
+    stopCountDown(countId);
+    console.log('counter stopped');
+  } else if (status == 0) {
+    //When clicked while stopped, it resets to 1234 and starts counting down again.
+    counterVal = 1234;
+    counter.css('color', '#0f0');
+    console.log('counting down: ');
+    countId = setInterval(countDown);
+  }
+})
 
 
 
 
 
 
-//When clicked while counting, it stops.
 
-//When clicked while stopped, it resets to 1234 and starts counting down again.
+
+
+
+
+
+
 
 //When it reaches 0, it takes on a class called "fail", which makes the text turn red.
 
