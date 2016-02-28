@@ -60,22 +60,20 @@
 $(document).ready(function() {
 //global stuff / event listeners, etc
 var counter = $('#counter');
-
-//The counter starts at 1234.
-var counterVal = 1234;
-console.log(counterVal);
+var counterVal = 1234; //The counter starts at 1234.
 counter.val(counterVal);
-var countId;
-var status = 0;
+console.log('starting at : ' + counterVal);
+var countId; //allow access outside of functions so clearInterval can be used
+var status = 0; //use to decide how to handle click event, status of 1 enables stop on click status 0 enables start on click
 
 //function to count down
 function countDown() {
-  counter.removeClass('fail');;
+  counter.removeClass('fail'); //make sure counter starts out in green
   counterVal--;
   counter.val(counterVal);
   console.log(counterVal);
   status = 1;
-  //It cannot go below 0.
+  //keep counter from going below 0.
   if(counter.val() == 0) {
     //When it reaches 0, it takes on a class called "fail", which makes the text turn red.
     $('#counter').addClass('fail');
