@@ -57,6 +57,43 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
       // Put some code in here!
+$(document).ready(function() {
+//global stuff / event listeners, etc
+var counter = $('#counter');
+//The counter starts at 1234.
+var counterVal = 1234;
+console.log(counterVal);
+counter.val(counterVal);
+//When clicked, it begins counting down.
+function ticker() {
+  setInterval(function() {
+    counterVal--;
+    counter.val(counterVal);
+    console.log('a second has passed');
+    console.log(counterVal);
+  }, 1000)
+}
+counter.click(function(e) {
+  e.preventDefault();
+  if(counter.attr('class') === 'counting') {
+    console.log(true);
+  }
+  counter.addClass('counting');
+  ticker();
+});
+
+
+
+
+
+//When clicked while counting, it stops.
+
+//When clicked while stopped, it resets to 1234 and starts counting down again.
+
+//When it reaches 0, it takes on a class called "fail", which makes the text turn red.
+
+//It cannot go below 0.
+});
     </script>
 
   </head>
