@@ -65,19 +65,21 @@
 
 
             function minusOne(){
-                //decrease original num by 1
-                firstNum=firstNum-1;
                 $("#counter").prop("value", firstNum);
-                console.log(firstNum);
+                //decrease original num by 1
+                if(isCountingDown){
+                    firstNum=firstNum-1;
+                }
                 isCountingDown = true;
                 //If number is 0 or less then stop the timer.
                 if(firstNum <= 0){
                     // IF the counter reaches 0, the counter's text should turn red.
                     $("#counter").addClass("fail")
-                    clearInterval(timer);
-
+                    isCountingDown = false;
                 }
             }
+
+            
             $("#counter").click(function(evt){
                 //default for all buttons is to reset it's value.
                 evt.preventDefault();
@@ -86,12 +88,16 @@
                     isCountingDown = false;
                 //beginning of program it is false so this should run on first click.
                 }else if(isCountingDown === false){
-                timer = setInterval(minusOne, 1000)
+                    if(firstNum === 0){
+                        firstNum = 10;
+                    }else if(firstNum > 0){
+                        timer = setInterval(minusOne, 1000)
+                    }
                     isCountingDown = true;
                 }
             });
 
-
+            //FIXME: When you click on the counter again, continue the timer. At 0 on click should reset to original number.
 
         })
 
