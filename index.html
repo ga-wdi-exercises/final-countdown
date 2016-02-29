@@ -60,7 +60,7 @@
         // After the counter is clicked, every 1 second decrease the original value of the counter by 1 and replace the counter's text with the new value. When you click on the counter, stop the timer.
             var firstNum = $("#counter").prop("value")
             var isCountingDown = false;
-
+            var timer;
 
 
             function minusOne(){
@@ -68,7 +68,7 @@
                 $("#counter").prop("value", firstNum);
                 console.log(firstNum);
                 isCountingDown = true;
-                if(firstNum = 0){
+                if(firstNum <= 0){
                     clearInterval(timer);
                 }
             }
@@ -78,14 +78,12 @@
                     clearInterval(timer);
                     isCountingDown = false;
                 }else if(isCountingDown === false){
-                    var timer = setInterval(minusOne, 1000)
+                timer = setInterval(minusOne, 1000)
                     isCountingDown = true;
                 }
             });
 
             //FIXME: Now able to put setInterval in click function, but it doesn't stop when clicked again.
-            //FIXME: timer goes beyond 0, added a conditional, now timer counds once and goes to -1...wat?
-
 
         })
 
