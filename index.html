@@ -66,9 +66,13 @@
             intervalID = setInterval(function() {
             value1--;
             $("#counter").val(value1);
-          }, 1);
+            if (value1 === 0) {
+              $("#counter").css("color", "red");
+              clearInterval(intervalID);
+            }
+          }, 500);
           clicked = true;
-        }
+          }
         else if (clicked == true) {
           e.preventDefault();
           clicked = false;
@@ -83,7 +87,7 @@
   <body>
 
     <form>
-      <input type="submit" id="counter" value="200" />
+      <input type="submit" id="counter" value="5" />
     </form>
 
   </body>
