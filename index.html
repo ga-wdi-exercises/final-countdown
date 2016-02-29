@@ -56,20 +56,26 @@
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
+    var intervalID;
+    var clicked = false
     $(document).ready(function() {
       var value1 = $("#counter").val();
       $("#counter").click(function(e) {
-        e.preventDefault();
-        setInterval(function() {
-          value1 = value1 - 1;
-          $("#counter").val(value1);
-      }, 1000);
+        if (clicked == false){
+          e.preventDefault();
+            intervalID = setInterval(function() {
+            value1--;
+            $("#counter").val(value1);
+          }, 1);
+          clicked = true;
+        }
+        else if (clicked == true) {
+          e.preventDefault();
+          clicked = false;
+          clearInterval(intervalID);
+        };
+      });
     });
-  });
-      // decrease();
-
-
-
 
     </script>
 
