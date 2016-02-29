@@ -2,16 +2,17 @@ $(document).ready(function() {
     var counter = $("#counter");
     var startCount = "1234";
     var started = false;
+    var zeroClass = "fail";
     var count, queue;
     counter.val(startCount);
     function countDown() {
         count--;
         if (count === 0) {
             started = false;
-            counter.addClass("fail");
+            counter.addClass(zeroClass);
             clearInterval(queue);
         } else {
-            counter.removeClass("fail");
+            if (counter.hasClass(zeroClass)) counter.removeClass(zeroClass);
         }
         counter.val(count);
     }
