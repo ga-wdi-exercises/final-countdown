@@ -61,21 +61,43 @@
   <body>
 
     <form>
-      <input type="submit" id="counter" value=1234 />
+      <input type="submit" id="counter" value=200 />
     </form>
     <script>
-    var counter = $('#counter').val();
-    //counter runs down each second after clicking, passes value to html element
-    $('#counter').click(function() {
-           event.preventDefault();
-           setInterval(function()
-             {counter=counter-1;
-               console.log(counter);
-               $("#counter").val(counter);
-             }, 1000
-           );
-      }
-    );
+
+       var counter = $("#counter")
+       var startNum = 1234;
+       counter.val(startNum)
+       var gameInProgress = false;
+       var countID;
+
+     function countDown(){
+       counter.removeClass("fail");
+       startNum--
+       $("input").attr("value", startNum)
+       console.log(startNum)
+       gameInProgress = true;
+       if (startNum === 0) {
+         stopCountDown(countID);
+       counter.addClass("fail");
+       }
+
+   }
+     function stopCountDown(x) {
+       clearInterval(x)
+       gameInProgress = false;
+     }
+     counter.click(function(evt){
+     evt.preventDefault()
+     if (gameInProgress === true) {
+       stopCountDown(countID)
+     }
+     else if (gameInProgress === false){
+       startNum = 1234;
+       countID = setInterval(countDown);
+     }
+   });
+
     </script>
   </body>
 </html>
