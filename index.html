@@ -83,9 +83,16 @@
             active = false;
           }
           else {
+            resetCounter();
             counting = setInterval(decrement, 1000);
             active = true;
           }
+        }
+
+        function resetCounter() {
+          counterValue = 5;
+          counter.attr('value', counterValue);
+          $(counter).removeClass('fail');
         }
       });
     </script>
@@ -94,7 +101,7 @@
   <body>
 
     <form>
-      <input type="submit" id="counter" value="5" />
+      <input type="submit" id="counter" value="1234" />
     </form>
 
   </body>
