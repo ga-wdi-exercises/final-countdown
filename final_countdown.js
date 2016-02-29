@@ -7,6 +7,7 @@ $(document).ready(function() {
     function countDown() {
         count--;
         if (count === 0) {
+            started = false;
             counter.addClass("fail");
             clearInterval(queue);
         } else {
