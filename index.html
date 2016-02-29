@@ -60,21 +60,22 @@
         // After the counter is clicked, every 1 second decrease the original value of the counter by 1 and replace the counter's text with the new value. When you click on the counter, stop the timer.
             var firstNum = $("#counter").prop("value")
             var isCountingDown = false;
-            var clock;
 
+            var timer = setInterval(minusOne, 1000)
 
             function minusOne(){
                 firstNum=firstNum-1;
-                if(firstNum > 0){
-                    $("#counter").prop("value", firstNum);
-                    console.log(firstNum);
-                }
+                $("#counter").prop("value", firstNum);
+                console.log(firstNum);
+                isCountingDown = true;
+
             }
-            $("#counter").click(function(){
-                if(isCountingDown === false){
-                    clock = setInterval(minusOne, 1000)
-                }
-            });
+            // $("#counter").click(function(){
+            //     if(isCountingDown === true){
+            //         clearInterval(timer);
+            //         isCountingDown = false;
+            //     }
+            // });
 
 
         })
