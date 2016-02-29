@@ -23,7 +23,12 @@ $(document).ready(function() {
             started = true;
             count = startCount;
             counter.val(startCount);
-            queue = setInterval(countDown, 0);
+            queue = setInterval(function() {
+                var t0 = performance.now();
+                countDown();
+                var t1 = performance.now();
+                console.log("countDown call timed at " + (t1-t0) + " ms");
+            }, 0);
         }
     });
 });
