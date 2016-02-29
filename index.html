@@ -68,7 +68,9 @@
                 $("#counter").prop("value", firstNum);
                 console.log(firstNum);
                 isCountingDown = true;
-
+                if(firstNum = 0){
+                    clearInterval(timer);
+                }
             }
             $("#counter").click(function(evt){
                 evt.preventDefault();
@@ -81,7 +83,8 @@
                 }
             });
 
-            //FIXME: Now able to put setInterval in click function, but it doesn't stop when clicked again. 
+            //FIXME: Now able to put setInterval in click function, but it doesn't stop when clicked again.
+            //FIXME: timer goes beyond 0, added a conditional, now timer counds once and goes to -1...wat?
 
 
         })
@@ -105,7 +108,7 @@
   <body>
 
     <form>
-      <input type="submit" id="counter" value="200" />
+      <input type="submit" id="counter" value="20" />
     </form>
 
   </body>
