@@ -84,13 +84,13 @@
           }
           else {
             resetCounter();
-            counting = setInterval(decrement, 1000);
+            counting = setInterval(decrement, 10);
             active = true;
           }
         }
 
         function resetCounter() {
-          counterValue = 5;
+          counterValue = 1234;
           counter.attr('value', counterValue);
           $(counter).removeClass('fail');
         }
