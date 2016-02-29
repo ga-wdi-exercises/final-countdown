@@ -1,28 +1,25 @@
 $(document).ready(function() {
   var game = {
     counter: $("#counter"),
-    seconds: 1233,
-    second: 0,
     gameInProgress: false,
-    currentValue: "",
+    interval: "",
+    // currentValue: "",
     startGame: function() {
       this.counter.click(this.assessStatus);
     },
     playGame: function() {
-      var interval;
       var self = game;
+      var seconds = 1233;
+      var second = 0;
 
       self.interval = setInterval(function() {
-        self.counter.val(self.seconds - self.second);
-        self.currentValue = self.seconds - self.second;
+        self.counter.val(seconds - second);
 
-        if (self.second >= self.seconds) {
+        if (second >= seconds) {
           self.counter.val(0).css("color", "red");
         };
 
-        self.second++;
-
-        console.log(self.currentValue);
+        second++;
       }, 1);
 
       this.gameInProgress = true;
@@ -33,7 +30,7 @@ $(document).ready(function() {
       var self = game;
 
       if (self.gameInProgress) {
-        self.counter.val(self.currentValue);
+        clearInterval(self.interval)
         self.gameInProgress = false;
       } else {
         self.playGame();
