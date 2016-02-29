@@ -56,14 +56,52 @@
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
-      // Put some code in here!
+      $(document).ready(function() {
+        console.log("I'm ready!");
+
+        var counter = $('#counter')
+        var counterValue = counter.attr('value');
+        var counting;
+        var active = false;
+
+        function decrement(){
+          if(counterValue <= 0) {
+            $(counter).addClass('fail');
+            clearInterval(counting);
+            active = false;
+          }
+          counter.attr('value', counterValue);
+          counterValue--;
+        }
+
+        counter.on('click', handleClick); // end of counter click function
+
+        function handleClick(evt) {
+          evt.preventDefault();
+          if(active) {
+            clearInterval(counting);
+            active = false;
+          }
+          else {
+            resetCounter();
+            counting = setInterval(decrement, 10);
+            active = true;
+          }
+        }
+
+        function resetCounter() {
+          counterValue = 1234;
+          counter.attr('value', counterValue);
+          $(counter).removeClass('fail');
+        }
+      });
     </script>
 
   </head>
   <body>
 
     <form>
-      <input type="submit" id="counter" value="200" />
+      <input type="submit" id="counter" value="1234" />
     </form>
 
   </body>
