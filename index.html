@@ -70,12 +70,13 @@
                 isCountingDown = true;
 
             }
-            // $("#counter").click(function(){
-            //     if(isCountingDown === true){
-            //         clearInterval(timer);
-            //         isCountingDown = false;
-            //     }
-            // });
+            $("#counter").click(function(evt){
+                evt.preventDefault();
+                if(isCountingDown === true){
+                    clearInterval(timer);
+                    isCountingDown = false;
+                }
+            });
 
             //FIXME: why is the default to reset the value to 200?
 
