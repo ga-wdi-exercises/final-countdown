@@ -61,19 +61,27 @@
 
         var counter = $('#counter')
         var counterValue = counter.attr('value');
+        var counting;
+        var active = false;
 
-        counter.click(function(evt) {
-          evt.preventDefault();
-          setInterval(function () {
-            counter.attr('value', counterValue); // end of console log
-            decrement();
-          }, 1000); // end of set interval
-        }); // end of counter click function
-
-        function decrement() {
+        function decrement(){
+          counter.attr('value', counterValue);
           counterValue--;
         }
 
+        counter.on('click', handleClick); // end of counter click function
+
+        function handleClick(evt) {
+          evt.preventDefault();
+          if(active) {
+            clearInterval(counting);
+            active = false;
+          }
+          else {
+            counting = setInterval(decrement, 1000);
+            active = true;
+          }
+        }
       });
     </script>
 
