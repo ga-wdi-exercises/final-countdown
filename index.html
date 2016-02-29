@@ -66,7 +66,9 @@
 
         function decrement(){
           if(counterValue <= 0) {
-            $(counter).addClass('fail')
+            $(counter).addClass('fail');
+            clearInterval(counting);
+            active = false;
           }
           counter.attr('value', counterValue);
           counterValue--;
