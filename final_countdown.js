@@ -23,12 +23,9 @@ $(document).ready(function() {
             started = true;
             count = startCount;
             counter.val(startCount);
-            queue = setInterval(function() {
-                var t0 = performance.now();
-                countDown();
-                var t1 = performance.now();
-                console.log("countDown call timed at " + (t1-t0) + " ms");
-            }, 0);
+            // The following should behave the same as setting the delay to 0
+            // in browsers that follow the HTML5 spec.
+            queue = setInterval(countDown, 4);
         }
     });
 });
