@@ -56,14 +56,44 @@
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
-      // Put some code in here!
+
+$(document).ready(function(){
+
+  var counter = $("#counter") // selects counter
+  var originalTime = $("#counter").val(); // selects value of counter equal to 1234
+  var time; // time that will decrement
+  var timer; // setInterval to 1 millisecond
+
+  startTimer();
+  function startTimer(){
+    counter.click(function(evt) {
+      evt.preventDefault(); // NEED THIS TO MAKE CLICK WORK
+      clearInterval(timer); //clears timer if time has not yet reached 0 on click in decrement function
+      counter.removeClass("fail");
+      time = originalTime; // give time the value of 1234
+      timer = setInterval(decrement, 1); // create variable for setInterval
+    }); // close counter.click function
+    } // close startTimer function
+
+  function decrement(){
+    if (time>0){
+      time = time -1;
+      counter.val(time); // NEED THIS to replace original time value with decrementing time value
+    } else if (time===0){
+      counter.addClass("fail");
+      clearInterval(timer); // stop the timer
+    }
+  }; // close decrement function
+
+}); // close document ready
+
     </script>
 
   </head>
   <body>
 
     <form>
-      <input type="submit" id="counter" value="200" />
+      <input type="submit" id="counter" value="1234"/>
     </form>
 
   </body>
