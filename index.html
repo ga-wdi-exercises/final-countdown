@@ -61,7 +61,7 @@
             var firstNum = $("#counter").prop("value")
             var isCountingDown = false;
 
-            var timer = setInterval(minusOne, 1000)
+
 
             function minusOne(){
                 firstNum=firstNum-1;
@@ -75,10 +75,13 @@
                 if(isCountingDown === true){
                     clearInterval(timer);
                     isCountingDown = false;
+                }else if(isCountingDown === false){
+                    var timer = setInterval(minusOne, 1000)
+                    isCountingDown = true;
                 }
             });
 
-            //FIXME: why is the default to reset the value to 200?
+            //FIXME: Now able to put setInterval in click function, but it doesn't stop when clicked again. 
 
 
         })
