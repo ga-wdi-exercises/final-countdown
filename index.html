@@ -58,14 +58,15 @@
     <script>
 
     $(document).ready(function(){
-      var startNum = $("input").val(1234)
+      $("input").val(1234);
+      var startNum = $("input").val()
       $("#counter").click(function(evt){
         evt.preventDefault();
       });
 // After you load the page, every 1 second print "A second passed!" to the console.
-      var timer = setInterval(function(){
-      console.log("A second passed")}, 1000
-      );
+      // var timer = setInterval(function(){
+      // console.log("A second passed")}, 1000
+      // );
 // After the counter is clicked, print "I got clicked!" to the console.
       $("#counter").click(function(){
         console.log("i got clicked");
@@ -74,7 +75,17 @@
 // After the counter is clicked, every 1 second print the value of the counter to the console.
       $("#counter").click(function(){
 
+        setInterval(function(){
+        startNum--
+        $("input").attr("value", startNum)
+        console.log(startNum)}, 1000
+      );
+      // $("#counter").(funtion(){
+      //   clearInterval
+      // });
+
       });
+// After the counter is clicked, every 1 second decrease the original value of the counter by 1 and print the new value to the console.
 
 
       });
