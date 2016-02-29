@@ -62,30 +62,33 @@
       var value1 = $("#counter").val();
       $("#counter").click(function(e) {
         if (running == false){
-          $("#counter").val("1234");
           e.preventDefault();
+          $("#counter").val("1234");
+          value1 = 1234;
+          running = true;
           intervalID = setInterval(function() {
           value1--;
           $("#counter").val(value1);
           if (value1 === 0) {
             running = false;
-            $("#counter").css("color", "red");
+            $("#counter").addClass("fail");
             clearInterval(intervalID);
             $("#counter").click(function(e) {
               e.preventDefault();
-              $("#counter").css("color", "#0f0");
-              $("#counter").val("1234");
+              $("#counter").removeClass("fail");
               value1 = 1234;
-              running = false;
+              intervalID();
+              running = true;
               });
             }
           }, 1);
-          running = true;
         }
         else if (running == true) {
           e.preventDefault();
           running = false;
           clearInterval(intervalID);
+          $("#counter").val(value1);
+          value1 = 1234;
         };
       });
     });
