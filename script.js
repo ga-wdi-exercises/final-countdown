@@ -1,35 +1,45 @@
-var game = {
-  // timeCounter: $("#counter").val(),
-  startGame: function() {
-    $("#counter").click(this.playGame);
-  },
-  playGame: function() {
-    event.preventDefault();
+$(document).ready(function() {
+  var game = {
+    counter: $("#counter"),
+    seconds: 1233,
+    second: 0,
+    gameInProgress: false,
+    currentValue: "",
+    startGame: function() {
+      this.counter.click(this.assessStatus);
+    },
+    playGame: function() {
+      var interval;
+      var self = game;
 
-    var seconds = 1233;
-    var second = 0;
-    var interval;
-    var self = game;
+      self.interval = setInterval(function() {
+        self.counter.val(self.seconds - self.second);
+        self.currentValue = self.seconds - self.second;
 
-    self.interval = setInterval(function() {
-      $("#counter").val(seconds - second);
+        if (self.second >= self.seconds) {
+          self.counter.val(0).css("color", "red");
+        };
 
-      if (second >= seconds) {
-        $("#counter").val(0).css("color", "red");
-      };
+        self.second++;
 
-      second++;
+        console.log(self.currentValue);
+      }, 1);
 
-      console.log(second);
-    }, 1);
-  },
-  newGame: function() {
-    event.preventDefault();
+      this.gameInProgress = true;
+    },
+    assessStatus: function() {
+      event.preventDefault();
 
-    var value = this.value;
+      var self = game;
 
-    console.log(value);
+      if (self.gameInProgress) {
+        self.counter.val(self.currentValue);
+        self.gameInProgress = false;
+      } else {
+        self.playGame();
+      }
+    }
   }
-}
 
-game.startGame();
+  game.startGame();
+});
