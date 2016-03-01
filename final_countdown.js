@@ -9,12 +9,12 @@ $(document).ready(function() {
         this.delay = delay;
     }
     Counter.prototype.countDown = function() {
+        this.count--;
         if (this.count === 0) {
             this.started = false;
             this.el.addClass(this.failClass);
             this.stopCounting();
         } else {
-            this.count--;
             this.el.val(this.count);
             if (this.el.hasClass(this.failClass)) {
                 this.el.removeClass(this.failClass);
