@@ -18,13 +18,22 @@
 
 // - After the counter is clicked, every 1 second print the value of the counter to the console.
 
+// - After the counter is clicked, every 1 second decrease the original value of the counter by 1 and print the new value to the console.
+
+// - After the counter is clicked, every 1 second decrease the original value of the counter by 1 and replace the counter's text with the new value.
+
 var form = $("#counter");
+var counter = form.val();
 
 var countdownValue = function () {
-  console.log(form.val());
+  console.log(counter);
+};
+
+var decreaseValue = function() {
+  console.log(counter -=1);
 };
 
 form.on("click", function(evt) {
   evt.preventDefault();
-  setInterval(countdownValue, 1000);
+  setInterval(decreaseValue, 1000);
 });                                 //As long as you have your javascript script.js link in the body of the HTML doc, you should not have to include your entire code in a document.ready(function());
