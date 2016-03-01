@@ -14,21 +14,17 @@
 
 //- After you load the page, every 1 second print "A second passed!" to the console.
 
+// - After the counter is clicked, every 1 second print "A second passed!" to the console.
 
-
-var oneSecond = function () {
-  console.log("A second passed!");
-};
-
-setInterval(oneSecond, 1000);
-
-//- After the counter is clicked, print "I got clicked!" to the console.
+// - After the counter is clicked, every 1 second print the value of the counter to the console.
 
 var form = $("#counter");
 
+var countdownValue = function () {
+  console.log(form.val());
+};
+
 form.on("click", function(evt) {
   evt.preventDefault();
-  console.log("I got clicked!");
+  setInterval(countdownValue, 1000);
 });                                 //As long as you have your javascript script.js link in the body of the HTML doc, you should not have to include your entire code in a document.ready(function());
-
-// - After the counter is clicked, every 1 second print "A second passed!" to the console.
