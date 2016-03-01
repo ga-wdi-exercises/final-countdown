@@ -60,18 +60,19 @@
     $(document).ready(function(){
 
       // var counterBucket = [];
-      // var counter;
+      var counter = $("#counter");
       var isCountingDown = false;
-      var timer = $("#counter");
+      var timerID;
       var firstNum = parseInt($("#counter").val());
+      var defaultID = 1234;
 
       function minusOne(){
-        console.log("firstNum", firstNum);
         $("#counter").removeClass("fail");
         $("#counter").val(firstNum);
         if (firstNum > 0){
           firstNum--;
-        }else if(firstNum <=0){
+        }else if(firstNum <= 0){
+          // counter.val("1234");
           $("#counter").addClass("fail");
         }
       };
@@ -79,13 +80,17 @@
       $("#counter").click(function(evt){
         evt.preventDefault();
         if (isCountingDown == false){
-          timer = setInterval(minusOne, 1000);
-          console.log("second", timer);
+          // counter.val("1234");
+          counter.val(defaultID);
+          timerID = setInterval(minusOne, 1);
+          console.log("second", timerID);
           isCountingDown = true;
         }else if(isCountingDown == true){
-          clearInterval(timer);
+          firstNum = defaultID;
+          clearInterval(timerID);
           isCountingDown = false;
-          console.log("I've been told to stop!");
+          console.log(isCountingDown);
+          // update the display with default
         }
       });
     });
@@ -114,7 +119,6 @@
 //     }
 //   });
 
-
 // $(document).ready(function(){
 //   if (counter){
 //   var seconds = $("#counter").val();
@@ -138,8 +142,6 @@
 // });
 
 
-
-
   //   stopwatch.click(function(e){
   //     if (seconds < 1234){
   //       seconds = 1234;
@@ -154,7 +156,7 @@
 
 
 
-
+// $(document).ready(function(){
     // counter.click(function(evt){
     //     setTimeout(countDown,0);
     //     evt.preventDefault();
@@ -168,7 +170,7 @@
     //     return;
     //   }
     // };
-
+// });
     </script>
 
   </head>
@@ -193,7 +195,7 @@ After the counter is clicked, every 1 second print "A second passed!" to the con
 After the counter is clicked, every 1 second print the value of the counter to the console.
 After the counter is clicked, every 1 second decrease the original value of the counter by 1 and print the new value to the console.
 After the counter is clicked, every 1 second decrease the original value of the counter by 1 and replace the counter's text with the new value.
-After the counter is clicked, every 1 second decrease the original value of the counter by 1 and replace the counter's text with the new value. When you click on the counter, stop the timer.
+After the counter is clicked, every 1 second decrease the original value of the counter by 1 and replace the counter's text with the new value. When you click on the counter, stop the timerID.
 After the counter is clicked, every 1 second decrease the original value of the counter by 1 and replace the counter's text with the new value. When you click on the counter, stop the timer. When you click on the counter again, continue the timer.
 
 After the counter is clicked, every 1 second decrease the original value of the counter by 1 and replace the counter's text with the new value. When you click on the counter, stop the timer. When you click on the counter again, continue the timer. If the counter reaches 0, the counter's text should turn red.
