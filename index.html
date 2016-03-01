@@ -89,7 +89,7 @@
                     firstNum = 1234;
                     $("#counter").val(firstNum);
                     //run the minusOne function every time amount.
-                    timerId = setInterval(minusOne);
+                    timerId = setInterval(minusOne, 4);
                     //set isCountingDown to true so that on next click the elseif section will run
                     isCountingDown = true;
                 }else if (isCountingDown === true) {
