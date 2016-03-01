@@ -30,3 +30,5 @@ form.on("click", function(evt) {
   evt.preventDefault();
   console.log("I got clicked!");
 });                                 //As long as you have your javascript script.js link in the body of the HTML doc, you should not have to include your entire code in a document.ready(function());
+
+// - After the counter is clicked, every 1 second print "A second passed!" to the console.
