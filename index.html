@@ -57,29 +57,41 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
 
-var counters = [];
+var counterBucket = [];
+var counter;
+var stopwatch = $("#counter");
 
-$(document).ready(function() {
-  counters = null;
-  var seconds = $("#counter").val();
-  $("#counter").click(function(event) {
-    console.log("The counter was clicked!");
+$(document).ready(function(){
+  if (counter){
+    $("input.running").click(function(){
+    clearInterval(stopwatch);
+    $("input.running").toggleClass("running");
     event.preventDefault();
-    setInterval(function() {
-      seconds--;
-      console.log(seconds);
-    $("#counter").prop("value",seconds);}, 1000);
-  }
-);
+    });
+
+  // stopwatch.addClass("running");
+  // var seconds = $("#counter").val();
+  // $("#counter").click(function(event){
+  //   console.log("The counter was clicked!");
+  //   event.preventDefault();
+  //   counter = setInterval(function() {
+  //     seconds--;
+  //     console.log(seconds);
+  // $("#counter").prop("value",seconds);
+  // }, 1000);
+// });
+}else if(!counter){
+  counterBucket = null;
+  $("input.stopped").toggleClass("running");
+  var seconds = $("#counter").val();
+  counter = setInterval(function() {
+    seconds--;
+    console.log(seconds);
+  $("#counter").prop("value",seconds);}, 1000);
+}
 });
 
 
-    $(".running").click(function(){
-      clearInterval(stopwatch);
-      stopwatch.prop("class",".stopped");
-      event.preventDefault();
-      return value;
-    });
 
 
 
