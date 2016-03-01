@@ -59,14 +59,22 @@
     <script>
       // Put some code in here!
       // make timer count down to zero when clicked
-      var Countdown = setInterval(myTimer, 10000);
+      $(document).ready(function(){
+      var startTime = $("#counter").val('1234');
+
+
+
 
       function myTimer(event){
         event.preventDefault();
-        var play = $('#counter').on('click',function(){
-          $('#counter').val()--;
+        if (startTime){
+         $('#counter').on('click',function(){
+           setInterval(startTime, 10000);
+          startTime--;
         } );
       }
+    }
+  });
       //make counter stop when clicked again
 
       //make counter reset when clicked 3rd time
@@ -77,7 +85,7 @@
   <body>
 
     <form>
-      <input type="submit" id="counter" value="1234" />
+      <input type="submit" id="counter" value="200" />
     </form>
 
   </body>
