@@ -15,8 +15,7 @@ $("#counter").val(counterValue);
 function countDown() {
   if (counterValue == 0) {
     clearInterval(counterID);
-//turn counter value red when zero
-    
+    $("#counter").addClass("fail");
   } else if (counterValue <= 10) {
       counterValue = counterValue - 1;
   }
@@ -31,7 +30,9 @@ $("#counter").click( function(event) {
 // decrease counter by one second by calling countDown function here
 // reassigns counterRunning to true to stop timer
     if (counterRunning == false) {
-      counterID = setInterval(countDown, 500);
+      counterValue = 10;
+      $("#counter").removeClass("fail");
+      counterID = setInterval(countDown, 200);
       counterRunning = true;
       console.log(counterValue);
       console.log("I got clicked!");
