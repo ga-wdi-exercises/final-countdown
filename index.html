@@ -57,48 +57,86 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
 
-var counterBucket = [];
-var counter;
-var stopwatch = $("#counter");
+    $(document).ready(function(){
 
-$(document).ready(function(){
-  if (counter){
-    $(".running").click(function(){
-      clearInterval(stopwatch);
-      $("input.stopped").toggleClass("running");
-      event.preventDefault();
+      // var counterBucket = [];
+      // var counter;
+      var isCountingDown = false;
+      var timer = $("#counter");
+      var firstNum = parseInt($("#counter").val());
+
+      function minusOne(){
+        console.log("firstNum", firstNum);
+        $("#counter").removeClass("fail");
+        $("#counter").val(firstNum);
+        if (firstNum > 0){
+          firstNum--;
+        }else if(firstNum <=0){
+          $("#counter").addClass("fail");
+        }
+      };
+
+      $("#counter").click(function(evt){
+        evt.preventDefault();
+        if (isCountingDown == false){
+          timer = setInterval(minusOne, 1000);
+          console.log("second", timer);
+          isCountingDown = true;
+        }else if(isCountingDown == true){
+          clearInterval(timer);
+          isCountingDown = false;
+          console.log("I've been told to stop!");
+        }
+      });
     });
 
-    // stopwatch.addClass("running");
-    // var seconds = $("#counter").val();
-    // $("#counter").click(function(event){
-    //   console.log("The counter was clicked!");
-    //   event.preventDefault();
-    //   counter = setInterval(function() {
-    //     seconds--;
-    //     console.log(seconds);
-    // $("#counter").prop("value",seconds);
-    // }, 1000);
-    // });
-  }else if(!counter){
-    counterBucket = null;
-    $("#counter").click(function(){
-      event.preventDefault();
-      $("input.stopped").toggleClass("running");
-      var seconds = $("#counter").val();
-      counter = setInterval(function() {
-        seconds--;
-        console.log(seconds);
-        $("#counter").prop("value",seconds);}, 1000);
-      })
-    }
-  });
+// $(document).ready(function(){
+//   if (isCountingDown = true){
+//     // $("#counter").click(function(){
+//     //   clearInterval(stopwatch);
+//       $("#counter").toggleClass("stopped");
+//     //   event.preventDefault();
+//     //   counterBucket = null;
+//     // });
+//     console.log("I've been told to stop!");
+//
+//   }else if(!counter){
+//     counterBucket = null;
+//     $("#counter").click(function(){
+//       event.preventDefault();
+//       $("#counter").toggleClass("running");
+//       var seconds = $("#counter").val();
+//       counter = setInterval(function() {
+//         seconds--;
+//         console.log(seconds);
+//         $("#counter").prop("value",seconds);}, 1000);
+//       })
+//     }
+//   });
 
-  $(".running").click(function(){
-  clearInterval(stopwatch);
-  stopwatch.prop("class",".stopped");
-  event.preventDefault();
-  });
+
+// $(document).ready(function(){
+//   if (counter){
+//   var seconds = $("#counter").val();
+//   $("#counter").click(function(event){
+//     console.log("The counter was clicked!");
+//     event.preventDefault();
+//     counter = setInterval(function() {
+//       seconds--;
+//       console.log(seconds);
+//   $("#counter").prop("value",seconds);
+//   $("#counter").class(".running");}, 1000);
+// });
+// }else if(!counter){
+//   counterBucket = null;
+//   var seconds = $("#counter").val();
+//   counter = setInterval(function() {
+//     seconds--;
+//     console.log(seconds);
+//   $("#counter").prop("value",seconds);}, 1000);
+// }
+// });
+
 
 
 
@@ -137,7 +175,7 @@ $(document).ready(function(){
   <body>
 
     <form>
-      <input type="submit" id="counter" class="stopped" value="1234" />
+      <input type="submit" id="counter" class="" value="1234" />
     </form>
 
   </body>
