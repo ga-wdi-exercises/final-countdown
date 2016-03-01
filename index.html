@@ -55,16 +55,26 @@
       }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script>
-      // Put some code in here!
-    </script>
 
   </head>
   <body>
 
     <form>
-      <input type="submit" id="counter" value="200" />
+      <input type="submit" id="counter" value="1234" />
     </form>
 
+    <script>
+    var finCount = {
+      //Create variable for value of counter
+      number : $("#counter").val(),
+      clicker : $("#counter"),
+      //Countdown function
+      countDown: function() {
+        finCount.number--;
+        return finCount.number;
+      }
+    }
+    var timer = setInterval(finCount.countDown, 1000);
+    </script>
   </body>
 </html>
