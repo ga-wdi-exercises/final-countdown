@@ -65,36 +65,23 @@
 
 
             function minusOne(){
+                $("#counter").removeClass("fail")
                 $("#counter").prop("value", firstNum);
+
                 //decrease original num by 1
-                if(isCountingDown){
+                if(firstNum >0){
                     firstNum=firstNum-1;
-                }
-                isCountingDown = true;
                 //If number is 0 or less then stop the timer.
-                if(firstNum <= 0){
+                }else if(firstNum <= 0){
                     // IF the counter reaches 0, the counter's text should turn red.
                     $("#counter").addClass("fail")
-                    isCountingDown = false;
                 }
             }
 
-            
+
             $("#counter").click(function(evt){
-                //default for all buttons is to reset it's value.
                 evt.preventDefault();
-                if(isCountingDown === true){
-                    clearInterval(timer);
-                    isCountingDown = false;
-                //beginning of program it is false so this should run on first click.
-                }else if(isCountingDown === false){
-                    if(firstNum === 0){
-                        firstNum = 10;
-                    }else if(firstNum > 0){
-                        timer = setInterval(minusOne, 1000)
-                    }
-                    isCountingDown = true;
-                }
+                timer = setInterval(minusOne, 1000)
             });
 
             //FIXME: When you click on the counter again, continue the timer. At 0 on click should reset to original number.
@@ -102,17 +89,11 @@
         })
 
 
-
-
-
-
-
-
-
-
-
-            // After the counter is clicked, every 1 second decrease the original value of the counter by 1 and replace the counter's text with the new value. When you click on the counter, stop the timer. When you click on the counter again, continue the timer. If the counter reaches 0, the counter's text should turn red and the timer should stop.
-            // After the counter is clicked, every 1 second decrease the original value of the counter by 1 and replace the counter's text with the new value. When you click on the counter, stop the timer. If the counter reaches 0, the counter's text should turn red and the timer should stop. When you click on the timer once it is stopped, its value should go back to the original value and the timer should start again.
+        // After the counter is clicked, every 1 second decrease the original value of the counter by 1 and replace the counter's text with the new value. When you click on the counter, stop the timer.
+        // After the counter is clicked, every 1 second decrease the original value of the counter by 1 and replace the counter's text with the new value. When you click on the counter, stop the timer. When you click on the counter again, continue the timer.
+        // After the counter is clicked, every 1 second decrease the original value of the counter by 1 and replace the counter's text with the new value. When you click on the counter, stop the timer. When you click on the counter again, continue the timer. If the counter reaches 0, the counter's text should turn red.
+        // After the counter is clicked, every 1 second decrease the original value of the counter by 1 and replace the counter's text with the new value. When you click on the counter, stop the timer. When you click on the counter again, continue the timer. If the counter reaches 0, the counter's text should turn red and the timer should stop.
+        // After the counter is clicked, every 1 second decrease the original value of the counter by 1 and replace the counter's text with the new value. When you click on the counter, stop the timer. If the counter reaches 0, the counter's text should turn red and the timer should stop. When you click on the timer once it is stopped, its value should go back to the original value and the timer should start again.
 
     </script>
 
