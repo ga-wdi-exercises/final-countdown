@@ -56,14 +56,50 @@
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
-      // Put some code in here!
+
+      $(document).on("ready", function(){
+
+        var counter = 1243;
+        var timer = $("#counter");
+        var started = false;
+        var currentTimerID = null;
+
+        var startTimer = function (count) {
+            currentTimerID = setInterval(function () {
+              if (counter > 0) {
+                --counter;
+                $("#counter").val(counter);
+              } else {
+                timer.css("color", "red");
+              }
+            }, 10);
+          };
+
+        var stopTimer = function (count) {
+          clearInterval(currentTimerID);
+          currentTimerID = null;
+        }
+
+        timer.on("click", function(event) {
+          event.preventDefault();
+          if (!started) {
+            counter = 1243;
+            timer.css("color", "#0f0");
+            startTimer();
+            started = true;
+          } else {
+            stopTimer();
+            started = false;
+          }
+        });
+      })
     </script>
 
   </head>
   <body>
 
     <form>
-      <input type="submit" id="counter" value="200" />
+      <input type="submit" id="counter" value="1243" />
     </form>
 
   </body>
