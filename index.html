@@ -53,10 +53,55 @@
       {
         color:red;
       }
-    </style>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+      </style>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
-      // Put some code in here!
+
+  $(document).ready(function(){
+
+    value = $("#counter").prop("value");
+    var counter = $("#counter");
+    timerOn = false;
+    var timer;
+
+  function startTimer() {
+    if (value <= 0){
+      counter.addClass("fail")
+      timerOn = false;
+    } else
+    value--
+    updateValue = $("#counter").prop("value", value)
+    timerOn = true;
+  }
+
+    counter.on("click", function(event) {
+        event.preventDefault();
+        // console.log("I got clicked")
+        if ((timerOn === false) && (value > 0)){
+          timer = setInterval(startTimer, 1);
+          console.log("1st condition is executed")
+        } else if ((timerOn === true) && (value > 0)) {
+          clearInterval(timer);
+          timerOn = false;
+          console.log("2nd condition is executed")
+        } else if ((timerOn === false) && (updateValue === 0)) {
+          reset();
+          console.log("3rd condition is executed")
+        }
+    });
+
+    reset = function() {
+      clearInterval(timer)
+      counter.removeClass("fail")
+      value = 200
+      updateValue = $("#counter").prop("value", value);
+    }
+
+
+// console.log($("#counter").prop("value"));
+
+});
     </script>
 
   </head>

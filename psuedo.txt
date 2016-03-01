@@ -1,0 +1,23 @@
+[x]Print the current value of the counter to the console.
+
+[x] After you load the page, every 1 second print "A second passed!" to the console.
+
+[x] After the counter is clicked, print "I got clicked!" to the console.
+
+[x] After the counter is clicked, every 1 second print "A second passed!" to the console.
+
+[x] After the counter is clicked, every 1 second print the value of the counter to the console.
+
+[x] After the counter is clicked, every 1 second decrease the original value of the counter by 1 and print the new value to the console.
+
+[x] After the counter is clicked, every 1 second decrease the original value of the counter by 1 and replace the counter's text with the new value.
+
+[x]After the counter is clicked, every 1 second decrease the original value of the counter by 1 and replace the counter's text with the new value. When you click on the counter, stop the timer.
+
+[x] After the counter is clicked, every 1 second decrease the original value of the counter by 1 and replace the counter's text with the new value. When you click on the counter, stop the timer. When you click on the counter again, continue the timer.
+
+[] If the counter reaches 0, the counter's text should turn red.
+
+[] If the counter reaches 0, the counter's text should turn red and the timer should stop.
+
+[] After the counter is clicked, every 1 second decrease the original value of the counter by 1 and replace the counter's text with the new value. When you click on the counter, stop the timer. If the counter reaches 0, the counter's text should turn red and the timer should stop. When you click on the timer once it is stopped, its value should go back to the original value and the timer should start again.
