@@ -63,35 +63,42 @@ var stopwatch = $("#counter");
 
 $(document).ready(function(){
   if (counter){
-    $("input.running").click(function(){
-    clearInterval(stopwatch);
-    $("input.running").toggleClass("running");
-    event.preventDefault();
+    $(".running").click(function(){
+      clearInterval(stopwatch);
+      $("input.stopped").toggleClass("running");
+      event.preventDefault();
     });
 
-  // stopwatch.addClass("running");
-  // var seconds = $("#counter").val();
-  // $("#counter").click(function(event){
-  //   console.log("The counter was clicked!");
-  //   event.preventDefault();
-  //   counter = setInterval(function() {
-  //     seconds--;
-  //     console.log(seconds);
-  // $("#counter").prop("value",seconds);
-  // }, 1000);
-// });
-}else if(!counter){
-  counterBucket = null;
-  $("input.stopped").toggleClass("running");
-  var seconds = $("#counter").val();
-  counter = setInterval(function() {
-    seconds--;
-    console.log(seconds);
-  $("#counter").prop("value",seconds);}, 1000);
-}
-});
+    // stopwatch.addClass("running");
+    // var seconds = $("#counter").val();
+    // $("#counter").click(function(event){
+    //   console.log("The counter was clicked!");
+    //   event.preventDefault();
+    //   counter = setInterval(function() {
+    //     seconds--;
+    //     console.log(seconds);
+    // $("#counter").prop("value",seconds);
+    // }, 1000);
+    // });
+  }else if(!counter){
+    counterBucket = null;
+    $("#counter").click(function(){
+      event.preventDefault();
+      $("input.stopped").toggleClass("running");
+      var seconds = $("#counter").val();
+      counter = setInterval(function() {
+        seconds--;
+        console.log(seconds);
+        $("#counter").prop("value",seconds);}, 1000);
+      })
+    }
+  });
 
-
+  $(".running").click(function(){
+  clearInterval(stopwatch);
+  stopwatch.prop("class",".stopped");
+  event.preventDefault();
+  });
 
 
 
