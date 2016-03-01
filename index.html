@@ -68,7 +68,6 @@
   function startTimer() {
     if (value <= 0){
       counter.addClass("fail")
-      timerOn = false;
     } else
     value--
     updateValue = $("#counter").prop("value", value)
@@ -78,23 +77,29 @@
     counter.on("click", function(event) {
         event.preventDefault();
         // console.log("I got clicked")
-        if ((timerOn === false) && (value > 0)){
+        if ((timerOn === false) && (value > 1233)){
           timer = setInterval(startTimer, 1);
           console.log("1st condition is executed")
         } else if ((timerOn === true) && (value > 0)) {
           clearInterval(timer);
           timerOn = false;
           console.log("2nd condition is executed")
-        } else if ((timerOn === false) && (updateValue === 0)) {
+        } else if ((timerOn === false) && (value < 1233)) {
           reset();
-          console.log("3rd condition is executed")
+          timerOn = false;
+          startTimer();
+          console.log("3rd condition is executed. timerOn = " + timerOn);
+        } else if (value === 0) {
+          reset();
+          timerOn = false;
+          console.log("4th condition is executed. timerOn =" +  timerOn);
         }
     });
 
     reset = function() {
       clearInterval(timer)
       counter.removeClass("fail")
-      value = 200
+      value = 1234
       updateValue = $("#counter").prop("value", value);
     }
 
@@ -108,7 +113,7 @@
   <body>
 
     <form>
-      <input type="submit" id="counter" value="200" />
+      <input type="submit" id="counter" value="1234" />
     </form>
 
   </body>
