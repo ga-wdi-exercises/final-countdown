@@ -58,30 +58,37 @@
     <script>
         $(document).ready(function(){
 
-            var firstNum = $("#counter").prop("value")
-            //need a state to compare things to for click function as learned in project 1 with adding an active class.
+            var firstNum = parseInt($("#counter").val());
             var isCountingDown = false;
-            var timer;
+            var timerId;
 
 
             function minusOne(){
                 $("#counter").removeClass("fail")
-                $("#counter").prop("value", firstNum);
+                $("#counter").val(firstNum);
 
                 //decrease original num by 1
                 if(firstNum >0){
+                    $("#counter").removeClass("fail")
                     firstNum=firstNum-1;
                 //If number is 0 or less then stop the timer.
                 }else if(firstNum <= 0){
                     // IF the counter reaches 0, the counter's text should turn red.
                     $("#counter").addClass("fail")
+                    $("#counter").val("10");
                 }
             }
 
 
             $("#counter").click(function(evt){
                 evt.preventDefault();
-                timer = setInterval(minusOne, 1000)
+                if(isCountingDown === false){
+                    timerId = setInterval(minusOne, 1000);
+                    isCountingDown = true;
+                }else if (isCountingDown === true) {
+                    clearInterval(timerId);
+                    isCountingDown = false;
+                }
             });
         })
 
