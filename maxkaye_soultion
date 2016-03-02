@@ -1,0 +1,8 @@
+
+//print value to console
+    $document.ready(function(){
+    var counter = $("counter");
+    var time= $("#counter").val();
+    var clock;
+    var timeAmount= 0; // how much time is on the clock
+    
