@@ -1,15 +1,42 @@
-$(document).ready(function(){
+// $(document).ready(function(){
 
-  var counter = $("#counter").attr("value")
 
-  var myInterval = 0;
+// var counter = $("#counter").attr("value");
 
-  function startLoop() {
-    myInterval = setInterval( doSomething(), 1000 );  // run
-  }
-  function doSomething() {
-    console.log(counter)
-  }
+var counter = parseInt(document.querySelector("#counter").value);
 
-  startLoop();
-})
+
+
+
+// function runTimer() {
+//   setInterval(function() {
+//     counter = counter - 1;
+//     console.log(counter);
+//     document.querySelector("#counter").value = counter;
+//   }, 1000);
+// }
+// runTimer();
+
+
+
+function runTimer() {
+    counter = counter - 1;
+    console.log(counter);
+    document.querySelector("#counter").value = counter;
+}
+
+
+
+document.querySelector("#counter").addEventListener("click", function(e){
+  e.preventDefault();
+  // clearInterval(counter);
+  // counter = counter;
+  setInterval(runTimer(), 1000);
+});
+
+
+
+
+
+
+// }); // end document ready function
