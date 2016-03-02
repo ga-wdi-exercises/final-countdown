@@ -71,11 +71,6 @@
     var counter = $("#counter");
     var currentTimerID = null;
 
-    // //Make a function that sets value to 1234
-    // function startNum(event) {
-    //   event.preventDefault();
-    //   counter.val("1234");
-    // }
     // After the counter is clicked, every 1 second decrease the original value of the counter by 1 and replace the counter's text with the new value.
     function getClick() {
       // number = 1234;
@@ -89,7 +84,7 @@
       // After the counter is clicked, every 1 second decrease the original value of the counter by 1 and replace the counter's text with the new value.
       if (number == "1234") {
         if (currentTimerID === null) {
-          currentTimerID = setInterval(getClick, 1000);
+          currentTimerID = setInterval(getClick, 500);
         }
       //When you click on the counter, stop the timer.
       } else {
@@ -98,8 +93,11 @@
         // When you click on the timer once it is stopped, its value should go back to the original value and the timer should start again.
         counter.on("click", function(event) {
           event.preventDefault();
-          counter.val("1234");
-          currentTimerID = setInterval(getClick, 1000);
+          if (currentTimerID === null) {
+            counter.val("1234");
+            number = "1234";
+            currentTimerID = setInterval(getClick, 500);
+          }
         });
       }
     });
