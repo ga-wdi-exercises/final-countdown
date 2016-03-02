@@ -78,7 +78,7 @@
                // set counter value to 1234
               startTime =1234
                // give counter an attribute of class and set it to empty ; from CSS info
-               $("counter").attr("class", "");
+               $("#counter").prop("class", "");
                // set interval for the countdown function and save in  var countId
                countId = setInterval(countDown,1);
                timer = false;
@@ -94,7 +94,7 @@
               startTime--;
               $("#counter").attr("value", startTime);
               if (startTime == 0) {
-                $("counter").attr("class", "fail");
+                $("#counter").prop("class", "fail");
                 clearInterval(countId);
                 timer = true;
               } {
