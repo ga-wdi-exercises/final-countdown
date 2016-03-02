@@ -17,7 +17,7 @@ function countdown(){
       event.preventDefault();
       console.log("Adrian")
     if(theTimerIsRunning === false){
-      currentTimerId = setInterval(decrease,1000);
+      currentTimerId = setInterval(decrease);
       theTimerIsRunning = true;
     }
     else if(theTimerIsRunning === true){
