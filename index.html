@@ -55,18 +55,32 @@
         color:red;
       }
     </style>
-    
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
       // Put some code in here!
       // make timer count down to zero when clicked
       $(document).ready(function(){
-      var startTime = $("#counter").val('1234');
-      var timer;
-           function myTimer(click){
-             if (startTime){
-               $('#counter').on('click',function(e){
-                 evt.preventDefault();
+
+        // set value of counter to 1234
+        $("#counter").val("1234");
+        // set a getter for counter value
+        var startTime = $("#counter").val();
+        // create a timer variable; to keep track of the countdown.
+      var timer = true;
+
+
+           function myTimer(e){
+             evt.preventDefault();
+
+             if (startTime = true){
+
+               $('#counter').on('click', countdown);
+             }
+
+           }
+            function countDown
+               {
                  clearInterval(timer);
           this.startTime--
           setInterval(countDown, -1);
@@ -75,9 +89,8 @@
         };
       }
       function countDown(){
-        if (startTime > 0){
-          this.startTime--;
-        }
+        if (startTime > 0)
+
       }
 
   });
