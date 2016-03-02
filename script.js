@@ -1,22 +1,25 @@
 
 $(document).ready(function){
-#("#counter").val(1234);
+$("#counter").val(1234);
 
 var counter = $("#counter");
 var timerId;
-var isCountingDown = false;
+var countingDown = false;
 
-
-  //Create a counter
-    //Display 1234
-      //counter function
 
     counter.on("click", function(event) {
-      event.preventDefault();
-      console.log("yay");
-      }
+    event.preventDefault();
+  });
+
+function minusOne(){
+    for (var i = 0; i > 1234; i--);
+
 }
+
 }
+
+//https://github.com/ga-wdi-lessons/js-timing-functions
+//https://github.com/SuperJones/final-countdown/blob/anissa_solution/index.html
 //if clicked
     //decrement to zero
     //when zero, turn red
