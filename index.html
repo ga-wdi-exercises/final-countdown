@@ -75,20 +75,22 @@
     function getClick() {
       // number = 1234;
       number--;
-      console.log(number);
       counter.val(number);
+      //when counter reaches value of 0, stop countdown and add class of fail.
       if (number === 0) {
         clearInterval(currentTimerID);
         currentTimerID = null;
         counter.addClass("fail");
+        isRunning == false;
       }
     }
 
-//var click = 0;
-var isRunning = false;
+    //sets default status of game to false
+    var isRunning = false;
 
     counter.on("click", function(event) {
       event.preventDefault();
+      //start countdown when clicked
       if (isRunning == false) {
         if (!currentTimerID) {
           counter.val("1234");
@@ -98,6 +100,7 @@ var isRunning = false;
           currentTimerID = setInterval(getClick, 1);
           console.log(currentTimerID);
         }
+        //changes status of game
         isRunning = true;
         console.log(isRunning);
       } else if (isRunning == true){
@@ -108,21 +111,6 @@ var isRunning = false;
         isRunning = false;
         console.log(isRunning);
       }
-      // click++;
-      // console.log(click);
-      // After the counter is clicked, every 1 second decrease the original value of the counter by 1 and replace the counter's text with the new value.
-      // if (number == "1234") {
-      // //When you click on the counter, stop the timer.
-      // } else {
-      //   // When you click on the timer once it is stopped, its value should go back to the original value and the timer should start again.
-      //   counter.on("click", function(event) {
-      //     event.preventDefault();
-      //     if (currentTimerID === null) {
-      //       currentTimerID = setInterval(getClick, 50);
-      //     }
-      //   });
-      // }
-      //If the counter reaches 0, the counter's text should turn red and the timer should stop.
     });
 
 
