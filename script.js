@@ -1,24 +1,19 @@
 
-var counter = parseInt(document.querySelector("#counter").value);
+var counter = parseInt($("#counter").val());
 var timerRunning = false;
 
 function runTimer() {
     counter = counter - 1;
     console.log(counter);
-    document.querySelector("#counter").value = counter;
+    $("#counter").val(counter);
     if (counter === 0) {
       clearInterval(runningTimer);
-      document.querySelector("#counter").classList.add("fail");
+      $("#counter").addClass("fail");
     }
-
-
 }
 
-document.querySelector("#counter").addEventListener("click", function(e){
+$("#counter").on("click", function(e){
     event.preventDefault();
-
-
-
 
       if(timerRunning === false){
         runningTimer = setInterval(runTimer, 100);
@@ -28,8 +23,4 @@ document.querySelector("#counter").addEventListener("click", function(e){
         clearInterval(runningTimer);
         timerRunning = false;
       }
-
-
-
-
   });
