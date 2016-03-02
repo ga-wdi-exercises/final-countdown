@@ -77,6 +77,11 @@
       number--;
       console.log(number);
       counter.val(number);
+      if (number === 0) {
+        clearInterval(currentTimerID);
+        currentTimerID = null;
+        counter.addClass("fail");
+      }
     }
 
 //var click = 0;
@@ -90,7 +95,7 @@ var isRunning = false;
           console.log(counter.val());
           number = "1234";
           console.log(currentTimerID);
-          currentTimerID = setInterval(getClick, 50);
+          currentTimerID = setInterval(getClick, 1);
           console.log(currentTimerID);
         }
         isRunning = true;
@@ -117,12 +122,7 @@ var isRunning = false;
       //     }
       //   });
       // }
-      // //If the counter reaches 0, the counter's text should turn red and the timer should stop.
-      // while (number === 0) {
-      //   clearInterval(currentTimerID);
-      //   currentTimerID = null;
-      //   counter.addClass("fail");
-      // }
+      //If the counter reaches 0, the counter's text should turn red and the timer should stop.
     });
 
 
