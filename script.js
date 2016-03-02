@@ -8,7 +8,7 @@ var theTimerIsRunning = false;
 var currentTimerId;
 
 function decrease(){
-  counterDefault--
+  counterDefault--;
   $("#counter").val(counterDefault);
 }
 

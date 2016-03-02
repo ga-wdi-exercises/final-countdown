@@ -11,11 +11,11 @@ Then I made a function called "countdown" hopefully will do just that.
 
 "countdown" starts out with a "click event" which has that preventDefault thing in it because they told us about the odd behaviour of these timer things. Lets kill that before it starts, eh?
 
-Then I made the actual function, which is really just an "if/else if" statement at this point in my thinking. It goes: if the timer is not running (and it's not because I told you it wasn't in a global variable at top), then make a timer that uses the function I made, "decrease." It will do that over an over again until I make "theTimerIsRunning !== false"(which it still is, at this point)
+Then I made the actual function, which is really just an "if/else if" statement at this point in my thinking. It goes: if the timer is not running (and it's not because I told you it wasn't in a global variable at top), then make a timer that uses the function I made, "decrease." It will do that over an over again until I make "theTimerIsRunning === true"
 
 Then, for fun, I made it true before I exited out. This will leave my function still running in my absence. Until I "click" again!!!
 
-now it will run through my whole function a second time. Only, NOW SOMETHING HAS CHANGED! it now cannot run the first part because "theTimerIsRunning" is NOW TRUE!
+now it will run through my whole function a second time when i CLICK. Only, NOW SOMETHING HAS CHANGED! it now cannot run the first part because "theTimerIsRunning" is NOW TRUE!
 
 so it runs the "clearInterval" which is the TimerID, and returns "theTimerIsRunning" to false.
 
@@ -23,4 +23,4 @@ That way, when I click again, it will start all over! Just like in my project!
 
 I had to remember to CALL the function "countdown()" otherwise I was just refreshing and being hilarious.
 
-issues? It goes to negative. Doesn't reset. and doesn't turn red. Babysteps. We'll get there! 
+issues? It goes to negative. Doesn't reset. and doesn't turn red. Babysteps. We'll get there!
