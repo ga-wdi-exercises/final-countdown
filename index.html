@@ -69,7 +69,7 @@
     //Create variable for value of counter
     var number = $("#counter").val();
     var counter = $("#counter");
-    var currentTimerID = null;
+    var currentTimerID;
 
     // After the counter is clicked, every 1 second decrease the original value of the counter by 1 and replace the counter's text with the new value.
     function getClick() {
@@ -79,37 +79,53 @@
       counter.val(number);
     }
 
-var click = 0;
+//var click = 0;
+var isRunning = false;
 
     counter.on("click", function(event) {
       event.preventDefault();
-      click++;
-      console.log(click);
-      // After the counter is clicked, every 1 second decrease the original value of the counter by 1 and replace the counter's text with the new value.
-      if (number == "1234") {
-        if (currentTimerID === null) {
+      if (isRunning == false) {
+        if (!currentTimerID) {
+          counter.val("1234");
+          console.log(counter.val());
+          number = "1234";
           console.log(currentTimerID);
-          currentTimerID = setInterval(getClick, 500);
+          currentTimerID = setInterval(getClick, 50);
           console.log(currentTimerID);
         }
-      //When you click on the counter, stop the timer.
-      } else {
+        isRunning = true;
+        console.log(isRunning);
+      } else if (isRunning == true){
+        //pauses the timer
         clearInterval(currentTimerID);
         currentTimerID = null;
-        // When you click on the timer once it is stopped, its value should go back to the original value and the timer should start again.
-        counter.on("click", function(event) {
-          event.preventDefault();
-          if (currentTimerID === null) {
-            counter.val("1234");
-            number = "1234";
-            currentTimerID = setInterval(getClick, 500);
-          }
-        });
+        console.log(currentTimerID);
+        isRunning = false;
+        console.log(isRunning);
       }
+      // click++;
+      // console.log(click);
+      // After the counter is clicked, every 1 second decrease the original value of the counter by 1 and replace the counter's text with the new value.
+      // if (number == "1234") {
+      // //When you click on the counter, stop the timer.
+      // } else {
+      //   // When you click on the timer once it is stopped, its value should go back to the original value and the timer should start again.
+      //   counter.on("click", function(event) {
+      //     event.preventDefault();
+      //     if (currentTimerID === null) {
+      //       currentTimerID = setInterval(getClick, 50);
+      //     }
+      //   });
+      // }
+      // //If the counter reaches 0, the counter's text should turn red and the timer should stop.
+      // while (number === 0) {
+      //   clearInterval(currentTimerID);
+      //   currentTimerID = null;
+      //   counter.addClass("fail");
+      // }
     });
 
 
-  //If the counter reaches 0, the counter's text should turn red and the timer should stop.
 
     </script>
   </body>
