@@ -79,12 +79,18 @@
       counter.val(number);
     }
 
+var click = 0;
+
     counter.on("click", function(event) {
       event.preventDefault();
+      click++;
+      console.log(click);
       // After the counter is clicked, every 1 second decrease the original value of the counter by 1 and replace the counter's text with the new value.
       if (number == "1234") {
         if (currentTimerID === null) {
+          console.log(currentTimerID);
           currentTimerID = setInterval(getClick, 500);
+          console.log(currentTimerID);
         }
       //When you click on the counter, stop the timer.
       } else {
