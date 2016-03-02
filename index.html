@@ -68,25 +68,40 @@
         var startTime = $("#counter").val();
         // create a timer variable; to keep track of the countdown.
       var timer = true;
-      // give counter an attribute of class and set it to "faill"; from CSS info
-      $("counter").attr("class", "")
+
+      var countId;
 
       // create a function to handle click event
-           function myTimer(e){
-             evt.preventDefault();
+           $("#counter").click(function(event){
+             event.preventDefault();
              // use timer value to determine what should happen
-             if (startTime = true){
+             if (timer){
+              startTime =1234
 
-               $('#counter').on('click', countdown);
+               // give counter an attribute of class and set it to empty ; from CSS info
+               $("counter").attr("class", "");
+               // set interval for the countdown function and save in  var countId
+               countId = setInterval(countDown,1);
+               timer = false;
              }
 
              else {
-
+               $("counter").attr("class", "fail");
+               clearInterval(countId);
              }
 
-           }
+           })
+
             function countDown(){
-              timer--;
+              startTime--;
+              $("#counter").attr("value", startTime);
+              if (startTime == 0) {
+                $("counter").attr("class", "fail");
+                timer = false;
+                clearInterval(countDown)
+              } {
+
+              }
 
 
             }
