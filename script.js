@@ -4,7 +4,6 @@ var timerRunning = false;
 
 function runTimer() {
     counter = counter - 1;
-    console.log(counter);
     $("#counter").val(counter);
     if (counter === 0) {
       clearInterval(runningTimer);
@@ -16,7 +15,9 @@ $("#counter").on("click", function(e){
     event.preventDefault();
 
       if(timerRunning === false){
-        runningTimer = setInterval(runTimer, 100);
+        counter = 1234;
+        $("#counter").removeClass("fail");
+        runningTimer = setInterval(runTimer, 1);
         timerRunning = true;
       }
       else if(timerRunning === true){
