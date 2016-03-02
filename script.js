@@ -1,42 +1,35 @@
-// $(document).ready(function(){
-
-
-// var counter = $("#counter").attr("value");
 
 var counter = parseInt(document.querySelector("#counter").value);
-
-
-
-
-// function runTimer() {
-//   setInterval(function() {
-//     counter = counter - 1;
-//     console.log(counter);
-//     document.querySelector("#counter").value = counter;
-//   }, 1000);
-// }
-// runTimer();
-
-
+var timerRunning = false;
 
 function runTimer() {
     counter = counter - 1;
     console.log(counter);
     document.querySelector("#counter").value = counter;
+    if (counter === 0) {
+      clearInterval(runningTimer);
+      document.querySelector("#counter").classList.add("fail");
+    }
+
+
 }
 
-
-
 document.querySelector("#counter").addEventListener("click", function(e){
-  e.preventDefault();
-  // clearInterval(counter);
-  // counter = counter;
-  setInterval(runTimer(), 1000);
-});
+    event.preventDefault();
 
 
 
 
+      if(timerRunning === false){
+        runningTimer = setInterval(runTimer, 100);
+        timerRunning = true;
+      }
+      else if(timerRunning === true){
+        clearInterval(runningTimer);
+        timerRunning = false;
+      }
 
 
-// }); // end document ready function
+
+
+  });
