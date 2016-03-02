@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>W07D05 Quiznos</title>
+    <title>Final Countdown</title>
     <link href='http://fonts.googleapis.com/css?family=VT323' rel='stylesheet' type='text/css'>
     <style>
       *
@@ -56,7 +56,48 @@
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
-      // Put some code in here!
+      $(document).ready(function(){
+        var startTime = parseInt($("#counter").val());
+        var counter = $("#counter");
+        var countDown = false;
+        var timer;
+
+        function beginCountdown(){
+          counter.val(startTime);
+
+          if (startTime > 0){
+            counter.removeClass("fail");
+            startTime = startTime-1;
+            countDown = true;
+          }
+          else if (startTime <= 0){
+            counter.addClass("fail");
+            clearInterval(timer)
+            countDown = false;
+          }
+
+        };
+
+          counter.on("click",function(e){
+            //prevents form submission
+            e.preventDefault();
+            //starts counting down
+            if (countDown == false){
+              timer = setInterval(beginCountdown,10)
+              countDown = true;
+            }
+            //pauses countdown
+            else if (countDown == true){
+              clearInterval(timer)
+              countdown = false;
+            }
+            else if (){
+
+            }
+
+        });
+
+      });
     </script>
 
   </head>
@@ -68,3 +109,26 @@
 
   </body>
 </html>
+
+
+
+
+
+  // sample
+  
+  $(#counter).on("click",function(e){
+    e.preventDefault ();
+    if (countdown == false) {
+      timer = setInterval (function, 1000)
+      countdown =  true;
+    }
+    else if (countdown == true){
+      clearInterval (timer)
+      countdown = false;
+    }
+    else if (counter.val() == 0){
+      $("#counter").removeClass("fail")
+      counter.val(1234)
+    }
+  });
+//

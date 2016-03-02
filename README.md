@@ -11,8 +11,7 @@ The counter starts at 1234.
 When clicked, it begins counting down.
 
 When clicked while counting, it stops.
-
-When clicked while stopped, it resets to 1234 and starts counting down again.
+ When clicked while stopped, it resets to 1234 and starts counting down again.
 
 When it reaches 0, it takes on a class called "fail", which makes the text turn red.
 
