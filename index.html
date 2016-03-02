@@ -68,32 +68,35 @@
         var startTime = $("#counter").val();
         // create a timer variable; to keep track of the countdown.
       var timer = true;
+      // give counter an attribute of class and set it to "faill"; from CSS info
+      $("counter").attr("class", "")
 
-
+      // create a function to handle click event
            function myTimer(e){
              evt.preventDefault();
-
+             // use timer value to determine what should happen
              if (startTime = true){
 
                $('#counter').on('click', countdown);
              }
 
+             else {
+
+             }
+
            }
-            function countDown
-               {
-                 clearInterval(timer);
-          this.startTime--
-          setInterval(countDown, -1);
-          console.log(startTime.val());
+            function countDown(){
+              timer--;
+
+
+            }
+        //        {
+        //          clearInterval(timer);
+        //   this.startTime--
+        //   setInterval(countDown, -1);
+        //   console.log(startTime.val());
+        // }
         });
-        };
-      }
-      function countDown(){
-        if (startTime > 0)
-
-      }
-
-  });
       //make counter stop when clicked again
 
       //make counter reset when clicked 3rd time
