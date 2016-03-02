@@ -56,15 +56,150 @@
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
-      // Put some code in here!
+
+    $(document).ready(function(){
+
+      // var counterBucket = [];
+      var counter = $("#counter");
+      var isCountingDown = false;
+      var timerID;
+      var firstNum = parseInt($("#counter").val());
+      var defaultID = 1234;
+
+      function minusOne(){
+        $("#counter").removeClass("fail");
+        $("#counter").val(firstNum);
+        if (firstNum > 0){
+          firstNum--;
+        }else if(firstNum <= 0){
+          // counter.val("1234");
+          $("#counter").addClass("fail");
+        }
+      };
+
+      $("#counter").click(function(evt){
+        evt.preventDefault();
+        if (isCountingDown == false){
+          // counter.val("1234");
+          counter.val(defaultID);
+          timerID = setInterval(minusOne, 1);
+          console.log("second", timerID);
+          isCountingDown = true;
+        }else if(isCountingDown == true){
+          firstNum = defaultID;
+          clearInterval(timerID);
+          isCountingDown = false;
+          console.log(isCountingDown);
+          // update the display with default
+        }
+      });
+    });
+
+// $(document).ready(function(){
+//   if (isCountingDown = true){
+//     // $("#counter").click(function(){
+//     //   clearInterval(stopwatch);
+//       $("#counter").toggleClass("stopped");
+//     //   event.preventDefault();
+//     //   counterBucket = null;
+//     // });
+//     console.log("I've been told to stop!");
+//
+//   }else if(!counter){
+//     counterBucket = null;
+//     $("#counter").click(function(){
+//       event.preventDefault();
+//       $("#counter").toggleClass("running");
+//       var seconds = $("#counter").val();
+//       counter = setInterval(function() {
+//         seconds--;
+//         console.log(seconds);
+//         $("#counter").prop("value",seconds);}, 1000);
+//       })
+//     }
+//   });
+
+// $(document).ready(function(){
+//   if (counter){
+//   var seconds = $("#counter").val();
+//   $("#counter").click(function(event){
+//     console.log("The counter was clicked!");
+//     event.preventDefault();
+//     counter = setInterval(function() {
+//       seconds--;
+//       console.log(seconds);
+//   $("#counter").prop("value",seconds);
+//   $("#counter").class(".running");}, 1000);
+// });
+// }else if(!counter){
+//   counterBucket = null;
+//   var seconds = $("#counter").val();
+//   counter = setInterval(function() {
+//     seconds--;
+//     console.log(seconds);
+//   $("#counter").prop("value",seconds);}, 1000);
+// }
+// });
+
+
+  //   stopwatch.click(function(e){
+  //     if (seconds < 1234){
+  //       seconds = 1234;
+  //     }
+  //     stopwatch = setInterval(function(){
+  //       seconds = seconds - 1;
+  //     }, 1000);
+  //     console.log(stopwatch);
+  //     e.preventDefault();
+  //   }
+  // );
+
+
+
+// $(document).ready(function(){
+    // counter.click(function(evt){
+    //     setTimeout(countDown,0);
+    //     evt.preventDefault();
+    //   });
+    //
+    // function countDown(){
+    //   seconds = 1234;
+    //   seconds--;
+    //   if(count == 0){
+    //     clearTimeout(counter);
+    //     return;
+    //   }
+    // };
+// });
     </script>
 
   </head>
   <body>
 
     <form>
-      <input type="submit" id="counter" value="200" />
+      <input type="submit" id="counter" class="" value="1234" />
     </form>
 
   </body>
 </html>
+
+
+<!-- Print the current value of the counter to the console.
+
+After you load the page, every 1 second print "A second passed!" to the console.
+
+After the counter is clicked, print "I got clicked!" to the console.
+
+After the counter is clicked, every 1 second print "A second passed!" to the console.
+
+After the counter is clicked, every 1 second print the value of the counter to the console.
+After the counter is clicked, every 1 second decrease the original value of the counter by 1 and print the new value to the console.
+After the counter is clicked, every 1 second decrease the original value of the counter by 1 and replace the counter's text with the new value.
+After the counter is clicked, every 1 second decrease the original value of the counter by 1 and replace the counter's text with the new value. When you click on the counter, stop the timerID.
+After the counter is clicked, every 1 second decrease the original value of the counter by 1 and replace the counter's text with the new value. When you click on the counter, stop the timer. When you click on the counter again, continue the timer.
+
+After the counter is clicked, every 1 second decrease the original value of the counter by 1 and replace the counter's text with the new value. When you click on the counter, stop the timer. When you click on the counter again, continue the timer. If the counter reaches 0, the counter's text should turn red.
+
+After the counter is clicked, every 1 second decrease the original value of the counter by 1 and replace the counter's text with the new value. When you click on the counter, stop the timer. When you click on the counter again, continue the timer. If the counter reaches 0, the counter's text should turn red and the timer should stop.
+
+After the counter is clicked, every 1 second decrease the original value of the counter by 1 and replace the counter's text with the new value. When you click on the counter, stop the timer. If the counter reaches 0, the counter's text should turn red and the timer should stop. When you click on the timer once it is stopped, its value should go back to the original value and the timer should start again. -->
