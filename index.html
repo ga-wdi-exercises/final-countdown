@@ -81,7 +81,6 @@
         clearInterval(currentTimerID);
         currentTimerID = null;
         counter.addClass("fail");
-        isRunning == false;
       }
     }
 
@@ -93,6 +92,7 @@
       //start countdown when clicked
       if (isRunning == false) {
         if (!currentTimerID) {
+          counter.removeClass("fail");
           counter.val("1234");
           console.log(counter.val());
           number = "1234";
