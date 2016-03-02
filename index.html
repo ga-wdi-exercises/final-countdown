@@ -3,6 +3,7 @@
   <head>
     <title>W07D05 Quiznos</title>
     <link href='http://fonts.googleapis.com/css?family=VT323' rel='stylesheet' type='text/css'>
+
     <style>
       *
       {
@@ -54,16 +55,78 @@
         color:red;
       }
     </style>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
       // Put some code in here!
+      // make timer count down to zero when clicked
+      $(document).ready(function(){
+
+        // set value of counter to 1234
+        $("#counter").val("1234");
+        // set a getter for counter value
+        var startTime = $("#counter").val();
+        // create a timer variable; to keep track of the countdown.
+      var timer = true;
+      // declare var to handle setInterval later
+      var countId;
+      // create a function to handle click event, use timer value to determine what should happen
+           $("#counter").click(function(event){
+             event.preventDefault();
+             // If timer value is true
+             if (timer){
+               // set counter value to 1234
+              startTime =1234
+               // give counter an attribute of class and set it to empty ; from CSS info
+               $("#counter").prop("class", "");
+               // set interval for the countdown function and save in  var countId
+               countId = setInterval(countDown,1);
+               timer = false;
+             }
+             else {
+               clearInterval(countId);
+               timer = true;
+             }
+
+           })
+           // function to handle countDown
+            function countDown(){
+              // reduce counter val by 1
+              startTime--;
+              // inherit reduced counter value
+              $("#counter").attr("value", startTime);
+              //if counter value is 0
+              if (startTime == 0) {
+                // set counter class to fail, to change color(green-red) as set in css
+                $("#counter").prop("class", "fail");
+                // turn off setInterval method for countId
+                clearInterval(countId);
+                // change timer val to true to enable the counter restart
+                timer = true;
+              } {
+
+              }
+
+
+            }
+        //        {
+        //          clearInterval(timer);
+        //   this.startTime--
+        //   setInterval(countDown, -1);
+        //   console.log(startTime.val());
+        // }
+        });
+      //make counter stop when clicked again
+
+      //make counter reset when clicked 3rd time
+
     </script>
 
   </head>
   <body>
 
     <form>
-      <input type="submit" id="counter" value="200" />
+      <input type="submit" id="counter" value="0" />
     </form>
 
   </body>
