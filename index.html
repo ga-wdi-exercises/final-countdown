@@ -65,15 +65,17 @@
 
 
 
-      function myTimer(event){
-        event.preventDefault();
-        if (startTime){
-         $('#counter').on('click',function(){
-           setInterval(startTime, 10000);
-          startTime--;
-        } );
+        //  $('#counter').on('click',function()
+           setInterval(myTimer, 3000);
+           function myTimer(click){
+             if (startTime){
+               $('#counter').on('click',function(e){
+          startTime--
+          console.log(startTime.val());
+        });
+        };
       }
-    }
+
   });
       //make counter stop when clicked again
 
