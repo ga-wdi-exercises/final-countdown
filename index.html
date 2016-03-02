@@ -91,11 +91,17 @@
            })
            // function to handle countDown
             function countDown(){
+              // reduce counter val by 1
               startTime--;
+              // inherit reduced counter value
               $("#counter").attr("value", startTime);
+              //if counter value is 0
               if (startTime == 0) {
+                // set counter class to fail, to change color(green-red) as set in css
                 $("#counter").prop("class", "fail");
+                // turn off setInterval method for countId
                 clearInterval(countId);
+                // change timer val to true to enable the counter restart
                 timer = true;
               } {
 
