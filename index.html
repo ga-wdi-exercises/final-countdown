@@ -1,134 +1,135 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Final Countdown</title>
-    <link href='http://fonts.googleapis.com/css?family=VT323' rel='stylesheet' type='text/css'>
-    <style>
-      *
-      {
-        margin:0;
-        padding:0;
-        border:0;
-        font-size:0;
-        box-sizing:border-box;
-        font-family: "VT323", monospace;
+<head>
+  <title>Final Countdown</title>
+  <link href='http://fonts.googleapis.com/css?family=VT323' rel='stylesheet' type='text/css'>
+  <style>
+  *
+  {
+    margin:0;
+    padding:0;
+    border:0;
+    font-size:0;
+    box-sizing:border-box;
+    font-family: "VT323", monospace;
+  }
+  body,html,form
+  {
+    position:relative;
+    width:100%;
+    height:100%;
+    background-color:black;
+  }
+  form
+  {
+    display:block;
+  }
+  #counter
+  {
+    display:block;
+    width:320px;
+    position:relative;
+    top:30%;
+    margin:0 auto;
+    border-radius:10px;
+    font-size:144px;
+    line-height:144px;
+    text-align:right;
+    padding:0px 24px;
+    background-color:transparent;
+    color:#0f0;
+    box-shadow:0px 0px 100px 0px #060;
+    cursor:pointer;
+  }
+  #counter:focus
+  {
+    outline:0;
+  }
+  #counter:hover
+  {
+    color:#8f8;
+  }
+  #counter.fail
+  {
+    color:red;
+  }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script>
+  $(document).ready(function(){
+    var startTime = parseInt($("#counter").val());
+    var counter = $("#counter");
+    var countDown = false;
+    var timer;
+
+
+    function beginCountdown(){
+      counter.val(startTime);
+      if (startTime > 0){
+        counter.removeClass("fail");
+        startTime = startTime-1;
+        countDown = true;
       }
-      body,html,form
-      {
-        position:relative;
-        width:100%;
-        height:100%;
-        background-color:black;
+      else if (startTime <= 0){
+        counter.addClass("fail");
+        clearInterval(timer)
+        countDown = false;
       }
-      form
-      {
-        display:block;
+    }
+
+    counter.on("click",function(e){
+      //prevents form submission
+      e.preventDefault();
+      //starts counting down
+      if (countDown == false){
+        //time = startTime;
+        timer = setInterval(beginCountdown,10)
+        countDown = true;
       }
-      #counter
-      {
-        display:block;
-        width:320px;
-        position:relative;
-        top:30%;
-        margin:0 auto;
-        border-radius:10px;
-        font-size:144px;
-        line-height:144px;
-        text-align:right;
-        padding:0px 24px;
-        background-color:transparent;
-        color:#0f0;
-        box-shadow:0px 0px 100px 0px #060;
-        cursor:pointer;
+      //pauses countdown
+      else if (countDown == true){
+        clearInterval(timer)
+        countDown = false;
       }
-      #counter:focus
-      {
-        outline:0;
-      }
-      #counter:hover
-      {
-        color:#8f8;
-      }
-      #counter.fail
-      {
-        color:red;
-      }
-    </style>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script>
-      $(document).ready(function(){
-        var startTime = parseInt($("#counter").val());
-        var counter = $("#counter");
-        var countDown = false;
-        var timer;
+    //  reset ()
+    });
+    // function reset (){
+    //   counter.on("click",function(e){
+    //     counter.val(1234)
+    //   });
+    // }
+  });
 
-        function beginCountdown(){
-          counter.val(startTime);
+  </script>
+</head>
+<body>
 
-          if (startTime > 0){
-            counter.removeClass("fail");
-            startTime = startTime-1;
-            countDown = true;
-          }
-          else if (startTime <= 0){
-            counter.addClass("fail");
-            clearInterval(timer)
-            countDown = false;
-          }
+  <form>
+    <input type="submit" id="counter" value="1234" />
+  </form>
 
-        };
-
-          counter.on("click",function(e){
-            //prevents form submission
-            e.preventDefault();
-            //starts counting down
-            if (countDown == false){
-              timer = setInterval(beginCountdown,10)
-              countDown = true;
-            }
-            //pauses countdown
-            else if (countDown == true){
-              clearInterval(timer)
-              countdown = false;
-            }
-            else if (){
-
-            }
-
-        });
-
-      });
-    </script>
-
-  </head>
-  <body>
-
-    <form>
-      <input type="submit" id="counter" value="1234" />
-    </form>
-
-  </body>
+</body>
 </html>
 
 
 
 
 
-  // sample
-  
-  $(#counter).on("click",function(e){
-    e.preventDefault ();
-    if (countdown == false) {
-      timer = setInterval (function, 1000)
-      countdown =  true;
-    }
-    else if (countdown == true){
-      clearInterval (timer)
-      countdown = false;
-    }
-    else if (counter.val() == 0){
-      $("#counter").removeClass("fail")
-      counter.val(1234)
-    }
-  });
+// sample
+
+$(#counter).on("click",function(e){
+  e.preventDefault ();
+  if (countdown == false) {
+    timer = setInterval (function, 1000)
+    countdown =  true;
+  }
+  else if (countdown == true){
+    clearInterval (timer)
+    countdown = false;
+  }
+  else if (counter.val() == 0){
+    $("#counter").removeClass("fail")
+    counter.val(1234)
+  }
+});
 //

@@ -26,7 +26,7 @@ If you're not sure how to start, try making your script achieve the following go
 - After the counter is clicked, print "I got clicked!" to the console.
 - After the counter is clicked, every 1 second print "A second passed!" to the console.
 - After the counter is clicked, every 1 second print the value of the counter to the console.
-- After the counter is clicked, every 1 second decrease the original value of the counter by 1 and print the new value to the console.
+- After the counter is clicked, every 1 second decrease the original value of the counter by 1 and primnt the new value to the console.
 - After the counter is clicked, every 1 second decrease the original value of the counter by 1 and replace the counter's text with the new value.
 - After the counter is clicked, every 1 second decrease the original value of the counter by 1 and replace the counter's text with the new value. When you click on the counter, stop the timer.
 - After the counter is clicked, every 1 second decrease the original value of the counter by 1 and replace the counter's text with the new value. When you click on the counter, stop the timer. When you click on the counter again, continue the timer.
