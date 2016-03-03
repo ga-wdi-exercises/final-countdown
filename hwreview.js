@@ -46,3 +46,7 @@ $("#counter").on("click", function(evt){
     });
   })
 //after the counter is clicked, every 1 second decrease the original value of the counter by 1 and replace the counter's text.
+
+//change counter to red when it hits zero
+//change back to green when reset ("#counter").addClass("fail") then ("#counter").removeClass("fail")
+//.on("click", function() to reset automatically with removeClass when clicked after first click.)
