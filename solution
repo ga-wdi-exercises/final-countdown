@@ -1,0 +1,38 @@
+//print value to console
+
+$(document).ready(function() {
+    var counter = $("#counter");
+    var initialTime= counter.val();
+    var increment = 0;
+    var countDown = false;
+    var timer;
+
+//When clicked, it begins counting down.
+//When clicked while counting, it stops.
+    function goDown() {
+        increment = increment - 1;
+        if (increment <= 0) {
+            clearInterval(timer);
+            countDown = false;
+            counter.addClass("no time left")
+        }
+        counter.val(increment)
+    }
+
+//When clicked while stopped, it resets to 1234 and starts counting down again.
+
+    counter.click(function(evt) {
+        evt.preventDefault();
+        if (countDown === true) {
+            clearInterval(timer);
+            countDown = false
+
+    //It cannot go below 0.
+        } else if (countDown === false) {
+            countDown = true;
+            increment = initialTime;
+            counter.removeClass("fail");
+            timer = setInterval(goDown, 4)
+        }
+    })
+});
