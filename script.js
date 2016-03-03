@@ -38,9 +38,17 @@ var decreaseValue = function() {
   form.prop("value", counter -= 1);
 };
 
-form.on("click", function(evt) {     //You can also write this as form.onClick();
+form.on("click", function(evt) {     //You can also write this as form.onClick();  Should I not use an anonymous function?
   evt.preventDefault();
+  if (counter = 1234) {
   setInterval(decreaseValue, 1000);
+  }
+  else if (counter < 1234) {
+    clearInterval();
+  }
+  else if (counter = 0) {
+    form.prop("value", 1234);
+  }
 });                                 //As long as you have your javascript script.js link in the body of the HTML doc, you should not have to include your entire code in a document.ready(function());
 
 
