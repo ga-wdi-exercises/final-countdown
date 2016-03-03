@@ -1,0 +1,37 @@
+Dear Lyndsey!
+
+set the value of the counter in the html up at the top
+
+then I made that value a default called "counterDefault" and left the "val" part blank so it can load whatever number it's on.
+
+then I made a function called "decrease" which
+will take that value I made, called "counterDefault", and is subtracts 1 from the "val(ue)" of the thing with the class "#counter"
+
+Then I made a function called "countdown" hopefully will do just that.
+
+"countdown" starts out with a "click event" which has that preventDefault thing in it because they told us about the odd behaviour of these timer things. Lets kill that before it starts, eh?
+
+Then I made the actual function, which is really just an "if/else if" statement at this point in my thinking. It goes: if the timer is not running (and it's not because I told you it wasn't in a global variable at top), then make a timer that uses the function I made, "decrease." It will do that over an over again until I make "theTimerIsRunning === true"
+
+Then, for fun, I made it true before I exited out. This will leave my function still running in my absence. Until I "click" again!!!
+
+now it will run through my whole function a second time when i CLICK. Only, NOW SOMETHING HAS CHANGED! it now cannot run the first part because "theTimerIsRunning" is NOW TRUE!
+
+so it runs the "clearInterval" which is the TimerID, and returns "theTimerIsRunning" to false.
+
+That way, when I click again, it will start all over! Just like in my project!
+
+I had to remember to CALL the function "countdown()" otherwise I was just refreshing and being hilarious.
+
+issues? It goes to negative. Doesn't reset. and doesn't turn red. Babysteps. We'll get there!
+======================================================
+
+Hi again Lyndzz! So, this is part two! I figured out how to make it STOP! I originally thought I could say something like "Oh, if the counter default = 0 then ...set the value to 0" or ... something. But (see that console log("hey")? ) well, that's there to test out where I could put this thing. Turns out, it doesn't work there because nothing happens until we click on something.
+
+I had to put something in the DECREASE function we had made but here's the non-linear part! I had to put it BEFORE the actual "counting down" part because of the way JS reads from top to bottom. So I put "if the counterDefault (which is really the number in whatever is in the CSS thing with the class of #counter)" if that is less than or equal to 0 then? clearInterval! Get rid of the timer! if it is NOT zero? Minus one it is! Now... to turn it red...
+=====================================================
+I turned it red!!
+Jquery - that part was easy - now that I knew when to put it there!
+
+==========================================================
+now... rest? On the second click? Can we do it?
