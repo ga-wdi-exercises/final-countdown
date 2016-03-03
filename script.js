@@ -1,5 +1,4 @@
 $(document).ready(function() {
-  $("title").html("AW Final Countdown")
   $("#counter").val("1234");
 
 // var counter =$("#counter");
@@ -15,7 +14,6 @@ function decrease(){
 function countdown(){
   $("#counter").click(function(event){
       event.preventDefault();
-      console.log("Adrian")
     if(theTimerIsRunning === false){
       currentTimerId = setInterval(decrease);
       theTimerIsRunning = true;
