@@ -1,70 +1,188 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>W07D05 Quiznos</title>
-    <link href='http://fonts.googleapis.com/css?family=VT323' rel='stylesheet' type='text/css'>
-    <style>
-      *
-      {
-        margin:0;
-        padding:0;
-        border:0;
-        font-size:0;
-        box-sizing:border-box;
-        font-family: "VT323", monospace;
-      }
-      body,html,form
-      {
-        position:relative;
-        width:100%;
-        height:100%;
-        background-color:black;
-      }
-      form
-      {
-        display:block;
-      }
-      #counter
-      {
-        display:block;
-        width:320px;
-        position:relative;
-        top:30%;
-        margin:0 auto;
-        border-radius:10px;
-        font-size:144px;
-        line-height:144px;
-        text-align:right;
-        padding:0px 24px;
-        background-color:transparent;
-        color:#0f0;
-        box-shadow:0px 0px 100px 0px #060;
-        cursor:pointer;
-      }
-      #counter:focus
-      {
-        outline:0;
-      }
-      #counter:hover
-      {
-        color:#8f8;
-      }
-      #counter.fail
-      {
-        color:red;
-      }
-    </style>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script>
-      // Put some code in here!
-    </script>
+<head>
+  <title>Final Count Down</title>
+  <link href='http://fonts.googleapis.com/css?family=VT323' rel='stylesheet' type='text/css'>
+  <style>
+  *
+  {
+    maragin:0;
+    padding:0;
+    border:0;
+    font-size:0;
+    box-sizing:border-box;
+    font-family: "VT323", monospace;
+  }
+  body,html,form
+  {
+    position:relative;
+    width:100%;
+    height:100%;
+    background-color:black;
+  }
+  form
+  {
+    display:block;
+  }
+  #counter
+  {
+    display:block;
+    width:320px;
+    position:relative;
+    top:30%;
+    margin:0 auto;
+    border-radius:10px;
+    font-size:144px;
+    line-height:144px;
+    text-align:right;
+    padding:0px 24px;
+    background-color:transparent;
+    color:#0f0;
+    box-shadow:0px 0px 100px 0px #060;
+    cursor:pointer;
+  }
+  #counter:focus
+  {
+    outline:0;
+  }
+  #counter:hover
+  {
+    color:#8f8;
+  }
+  #counter.fail
+  {
+    color:red;
+  }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script>
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script>
+  -      // Put some code in here!
 
-  </head>
-  <body>
+  $(document).ready(function(){
 
-    <form>
-      <input type="submit" id="counter" value="200" />
-    </form>
+    // var counterBucket = [];
+    var counter = $("#counter");
+    var isCountingDown = false;
+    var timerID;
+    var firstNum = parseInt($("#counter").val());
+    var defaultID = 1234;
 
-  </body>
+    function minusOne(){
+      $("#counter").removeClass("fail");
+      $("#counter").val(firstNum);
+      if (firstNum > 0){
+        firstNum--;
+      }else if(firstNum <= 0){
+        // counter.val("1234");
+        $("#counter").addClass("fail");
+      }
+    };
+
+    $("#counter").click(function(evt){
+      evt.preventDefault();
+      if (isCountingDown == false){
+        // counter.val("1234");
+        counter.val(defaultID);
+        timerID = setInterval(minusOne, 1);
+        console.log("second", timerID);
+        isCountingDown = true;
+      }else if(isCountingDown == true){
+        firstNum = defaultID;
+        clearInterval(timerID);
+        isCountingDown = false;
+        console.log(isCountingDown);
+        // update the display with default
+      }
+    });
+  });
+  // Bottom from review morning session with nick
+  // $(document).ready(function(){
+  //   if (isCountingDown = true){
+  //     // $("#counter").click(function(){
+  //     //   clearInterval(stopwatch);
+  //       $("#counter").toggleClass("stopped");
+  //     //   event.preventDefault();
+  //     //   counterBucket = null;
+  //     // });
+  //     console.log("I've been told to stop!");
+  //
+  //   }else if(!counter){
+  //     counterBucket = null;
+  //     $("#counter").click(function(){
+  //       event.preventDefault();
+  //       $("#counter").toggleClass("running");
+  //       var seconds = $("#counter").val();
+  //       counter = setInterval(function() {
+  //         seconds--;
+  //         console.log(seconds);
+  //         $("#counter").prop("value",seconds);}, 1000);
+  //       })
+  //     }
+  //   });
+
+  // $(document).ready(function(){
+  //   if (counter){
+  //   var seconds = $("#counter").val();
+  //   $("#counter").click(function(event){
+  //     console.log("The counter was clicked!");
+  //     event.preventDefault();
+  //     counter = setInterval(function() {
+  //       seconds--;
+  //       console.log(seconds);
+  //   $("#counter").prop("value",seconds);
+  //   $("#counter").class(".running");}, 1000);
+  // });
+  // }else if(!counter){
+  //   counterBucket = null;
+  //   var seconds = $("#counter").val();
+  //   counter = setInterval(function() {
+  //     seconds--;
+  //     console.log(seconds);
+  //   $("#counter").prop("value",seconds);}, 1000);
+  // }
+  // });
+
+
+  //   stopwatch.click(function(e){
+  //     if (seconds < 1234){
+  //       seconds = 1234;
+  //     }
+  //     stopwatch = setInterval(function(){
+  //       seconds = seconds - 1;
+  //     }, 1000);
+  //     console.log(stopwatch);
+  //     e.preventDefault();
+  //   }
+  // );
+
+
+
+  // $(document).ready(function(){
+  // counter.click(function(evt){
+  //     setTimeout(countDown,0);
+  //     evt.preventDefault();
+  //   });
+  //
+  // function countDown(){
+  //   seconds = 1234;
+  //   seconds--;
+  //   if(count == 0){
+  //     clearTimeout(counter);
+  //     return;
+  //   }
+  // };
+  // });
+  </script>
+
+</head>
+<body>
+
+  <form>
+    <input type="submit" id="counter" value="1234" />
+  </form>
+
+</body>
 </html>
