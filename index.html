@@ -3,6 +3,7 @@
   <head>
     <title>W07D05 Quiznos</title>
     <link href='http://fonts.googleapis.com/css?family=VT323' rel='stylesheet' type='text/css'>
+
     <style>
       *
       {
@@ -56,7 +57,42 @@
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
-      // Put some code in here!
+$(document).ready(function(){
+// The counter starts at 1234.
+var counter = $("#counter");
+var starterTime= $("#counter").prop("value",1234);
+var timer = 0
+// When clicked, it begins counting down.
+$("#counter").click(){
+  setInterval(counter,1000);
+  function countDownTimer(){
+
+  }
+
+}
+
+
+
+
+
+}
+
+
+
+
+
+//     // Print the current value of the counter to the console.
+// var starterTime =  $("#counter").prop("value",1234)
+//   // After you load the page, every 1 second print "A second passed!" to the console.
+// // var sec;
+// // function countsec(){
+// //   console.log("A second passed!")
+// // }
+// //
+
+
+
+
     </script>
 
   </head>
