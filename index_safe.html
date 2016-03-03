@@ -57,35 +57,33 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
       $(document).ready(function(){
-        var countdown = {
-          counter: $("#counter"),
-          timeDefault: counter.val(),
-          time: 0,
-          isRunning: false,
-          timer,
+        var counter = $("#counter");
+        var timeDefault = counter.val();
+        var time = 0;
+        var isRunning = false;
+        var timer;
 
-          decrement: function(){
-            countdown.time = countdown.time - 1;
-            if(countdown.time <= 0){
-              clearInterval(countdown.timer);
-              countdown.isRunning = false;
-              countdown.counter.addClass("fail");
-            }
-            counter.val(countdown.time);
+        function decrement(){
+          time = time - 1;
+          if(time <= 0){
+            clearInterval(timer);
+            isRunning = false;
+            counter.addClass("fail");
           }
+          counter.val(time);
+        }
 
-          counter.click(function(evt){
-            evt.preventDefault();
-            if(countdown.isRunning === true){
-              clearInterval(timer);
-              countdown.isRunning = false;
-            },
-            else if(countdown.isRunning === false){
-              countdown.isRunning = true;
-              countdown.time = timeDefault;
-              countdown.counter.removeClass("fail");
-              countdown.timer = setInterval(countdown.decrement, 1);
-            }
+        counter.click(function(evt){
+          evt.preventDefault();
+          if(isRunning === true){
+            clearInterval(timer);
+            isRunning = false;
+          }
+          else if(isRunning === false){
+            isRunning = true;
+            time = timeDefault;
+            counter.removeClass("fail");
+            timer = setInterval(decrement, 1);
           }
         });
       });
