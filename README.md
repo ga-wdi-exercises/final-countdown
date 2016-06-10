@@ -20,6 +20,7 @@ It cannot go below 0.
 
 ## Pseudo-coding
 
+
 If you're not sure how to start, try making your script achieve the following goals, one at a time:
 
 1. Print the current value of the counter to the console.
