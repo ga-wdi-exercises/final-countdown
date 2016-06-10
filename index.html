@@ -70,19 +70,21 @@
         $('#counter').click(function(e) {
           timerOn =  !timerOn;
           e.preventDefault();
-          if(timerOn===true){
-            var timer = setInterval(function(){ console.log("A second has past"); }, 1000);
-          }
-          else if (timerOn===false){
-            timer = false;
-          }
-
-
-          //setInterval(function(){ console.log("A second has past"); }, 1000);
-          console.log(timerOn);
+          startStopTimer();
         });
+        //can't figure out how to stop interval!!
+        function startStopTimer(){
+          var timer;
 
-
+          for (var i = 0; i < 4000; i++){
+            if(timerOn===true){
+              setTimeout(printSeconds, 1000);
+              }
+            }
+        };
+        function printSeconds(num){
+          console.log("A second has passed");
+        }
 
 
 
