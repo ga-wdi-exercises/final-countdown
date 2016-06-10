@@ -55,8 +55,78 @@
       }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
     <script>
       // Put some code in here!
+      $(document).ready(function() {
+        $('#counter').click(function(e) {
+          e.preventDefault();
+          var counterValue = parseInt($('#counter').val());
+          setInterval(function() {
+            var countdown = counterValue--
+            $('#counter').val(countdown);
+        }, 1000);
+
+        //     $('#counter').click(function(event) {
+     //     //Preventing from resetting
+     //     event.preventDefault();
+     //     // Set variable for #counter becoming a number
+     //     var counterValue = parseInt($('#counter').val());
+     //     setInterval(function() {
+     //       var countdown = counterValue--;
+     //       $('#counter').val(countdown);
+     //     }, 1000);
+
+     //     });
+
+
+     //   function pause(event) {
+     //     $('#counter').click(function(start) {
+
+     //     if (start() === true) {
+     //       event.preventDefault();
+     //       }
+
+     //     });
+     //   }
+     // });
+
+
+
+         // $('#count').countdown.stop();
+       // }
+       // $('#pause').click(pause);
+       // $('#resume').click(start);
+       // start();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </script>
 
   </head>
