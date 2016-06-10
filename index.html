@@ -56,7 +56,43 @@
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
-      // Put some code in here!
+
+      $( document ).ready(function() {
+
+       /* $('#counter').val();
+            setInterval(function(){
+            //console.log("A second passed!");
+           },1000);*/
+
+        /*$('#counter').click(function(e) {
+            e.preventDefault();
+            //console.log($'#counter').val(););
+        /*$('#counter').val();
+            setInterval(function(){
+            console.log($('#counter').val());
+            },1000);*/
+             //setInterval(function() {
+             // var counterValue = parseInt($('#counter').val());
+             // var countdown = counterValue--
+             // console.log(countdown);
+       // }, 1000);
+        //});
+
+$('#counter').click(function(e) {
+          e.preventDefault();
+          var counterValue = parseInt($('#counter').val());
+          setInterval(function() {
+            var countdown = counterValue--
+            console.log(countdown);
+            $('#counter').val(countdown);
+        }, 1000);
+        });
+$('#counter').click(function (e){
+        e.preventDefault();
+        var countdown = clearInterval("#counter");
+        $('#counter').stop(countdown);
+  })
+});
     </script>
 
   </head>
