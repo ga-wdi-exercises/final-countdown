@@ -56,8 +56,41 @@
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
-      // Put some code in here!
-    </script>
+      $( document ).ready(function() {
+        //step1
+        // console.log($('#counter').val());
+
+        //step3
+        // $('#counter').on('click', function(event) {
+        //   console.log("I got clicked");
+        // });
+
+        //step4
+        var timerOn = false;
+        $('#counter').click(function(e) {
+          timerOn =  !timerOn;
+          e.preventDefault();
+          startStopTimer();
+        });
+        //can't figure out how to stop interval!!
+        function startStopTimer(){
+          var timer;
+
+          for (var i = 0; i < 4000; i++){
+            if(timerOn===true){
+              setTimeout(printSeconds, 1000);
+              }
+            }
+        };
+        function printSeconds(num){
+          console.log("A second has passed");
+        }
+
+
+
+
+      });
+     </script>
 
   </head>
   <body>
