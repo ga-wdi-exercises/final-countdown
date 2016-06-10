@@ -57,6 +57,30 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
       // Put some code in here!
+      $(document).ready(function(){
+        $('#counter').click(function(e){
+          e.preventDefault();
+          var counterValue = parseInt($('#counter').val());
+          setInterval(function(){
+            var countdown = counterValue--
+            $('#counter').val(countdown);
+          }, 1000);
+
+        });
+        // $('#counter').on('click', 'countdown', function(e){
+        //   e.preventDefault;
+        // })
+
+        function.pause(event) {
+          $('#counter').click(function(start){
+            if (start()=== true) {
+              event.preventDefault();
+            }
+          })
+        }
+      });
+
+
     </script>
 
   </head>
