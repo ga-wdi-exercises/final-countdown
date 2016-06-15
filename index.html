@@ -56,7 +56,84 @@
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
-      // Put some code in here!
+      $(document).ready(function() {
+
+        // STEP 1 - line 25
+        // console.log($('#counter').val())
+
+
+        // STEP 2 - line 26
+        // setInterval(function() {
+        //   console.log("A second passed!")
+        // }, 1000);
+
+
+        // STEPS 3 & 4 - lines 27 & 28
+        // $('#counter').click(function(e) {
+        //   e.preventDefault();
+        //   console.log('I got clicked!')
+        //   setInterval(function() {
+        //   // console.log("A second passed!")
+        //   console.log($('#counter').val())
+        // }, 1000);
+        // });
+
+        // STEP 5 - lines 29
+        // $('#counter').click(function(e) {
+        //   e.preventDefault();
+        //   var counterValue = parseInt($('#counter').val());
+        //   setInterval(function() {
+        //     var countdown = counterValue--
+        //     console.log(countdown);
+        // }, 1000);
+        // });
+
+        // STEPS 6 & 7 - lines 30 & 31
+        // $('#counter').click(function(e) {
+        //   e.preventDefault();
+        //   var counterValue = parseInt($('#counter').val());
+        //   setInterval(function() {
+        //     var countdown = counterValue--;
+        //     return $('#counter').val(countdown);
+        // }, 1000);
+        // });
+
+
+        // STEP 8 - line 32
+        $('#counter').click(function(e) {
+          e.preventDefault();
+          var counterValue = parseInt($('#counter').val());
+          var counter = setInterval(function() {
+            var countdown = counterValue--;
+            return $('#counter').val(countdown);
+        }, 250);
+        });
+
+        // trying to move forward but stuck.  Not sure how to get 2nd click.
+
+
+        // STEP 9 - line 33
+
+
+
+
+        // STEP 10 - line 34
+
+
+
+
+        // STEP 11 - line 35
+
+
+
+
+        // STEP 12 - line 36
+
+
+
+
+
+});
     </script>
 
   </head>
